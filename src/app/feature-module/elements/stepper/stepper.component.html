@@ -1,0 +1,428 @@
+<div class="breadCumbs">
+  <header>
+    <div class="row">
+      <div class="col d-flex">
+        <img style="cursor: pointer" src="../../../../assets/img/logo.png" />
+      </div>
+    </div>
+  </header>
+  <div class="page-header" style="margin-block: 20px">
+    <div class="row">
+      <div
+        style="cursor: pointer"
+        class="col-6 d-flex flex-row align-items-center"
+      >
+        <a class="d-flex flex-row align-items-center" [routerLink]="'/login'">
+          <img
+            style="cursor: pointer"
+            class="lang-depend"
+            src="../../../../assets/img/right_arrow.svg"
+          />
+
+          <h3 class="page-title">
+            {{ "REGISTER.CREATE_NEW_USER" | translate }}
+          </h3>
+        </a>
+      </div>
+      <div class="dropdown col-6 text-left">
+        <a
+          class="dropdown-toggle"
+          href="javascript:void(0);"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ currentLang | uppercase }}
+        </a>
+        <div class="dropdown-menu">
+          <a
+            class="dropdown-item"
+            (click)="changeLang('en')"
+            href="javascript:void(0);"
+            >En</a
+          >
+          <a
+            class="dropdown-item"
+            (click)="changeLang('ar')"
+            href="javascript:void(0);"
+            >Ar</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <!-- /Page Header -->
+  <div class="row" style="display: flex; justify-content: center">
+    <div class="col-md-10">
+      <div class="card main">
+        <div class="card-body">
+          <mat-stepper #stepper>
+            <mat-step>
+              <form>
+                <ng-template matStepLabel>
+                  {{ "REGISTER.REGISTER_WAY" | translate }}
+                </ng-template>
+                <form>
+                  <h3>{{ "REGISTER.REGISTER_WAY" | translate }}</h3>
+                  <div class="row">
+                    <div class="col-4">
+                      <div
+                        (click)="handleCardChange('email')"
+                        class="card card-register d-flex flex-row"
+                        style="
+                          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        "
+                      >
+                        <div
+                          class="d-flex flex-column"
+                          style="height: 100%; justify-content: space-around"
+                        >
+                          <img
+                            *ngIf="type == 'email'"
+                            class="unchecked"
+                            src="../../../../assets/img/checked.svg"
+                          />
+                          <img
+                            *ngIf="type != 'email'"
+                            class="unchecked"
+                            src="../../../../assets/img/unchecked.svg"
+                          />
+                          <h4>
+                            {{ "REGISTER.EMAIL" | translate }}
+                          </h4>
+                        </div>
+
+                        <img src="../../../../assets/img/email.svg" />
+                      </div>
+                    </div>
+                    <div class="col-4">
+                      <div
+                        (click)="handleCardChange('identity')"
+                        class="card card-register d-flex flex-row"
+                        style="
+                          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        "
+                      >
+                        <div
+                          class="d-flex flex-column"
+                          style="height: 100%; justify-content: space-around"
+                        >
+                          <img
+                            *ngIf="type == 'identity'"
+                            class="unchecked"
+                            src="../../../../assets/img/checked.svg"
+                          />
+                          <img
+                            *ngIf="type != 'identity'"
+                            class="unchecked"
+                            src="../../../../assets/img/unchecked.svg"
+                          />
+                          <h4>
+                            {{ "REGISTER.IDENTITY" | translate }}
+                          </h4>
+                        </div>
+
+                        <img src="../../../../assets/img/identity.svg" />
+                      </div>
+                    </div>
+
+                    <div class="col-4">
+                      <div
+                        (click)="handleCardChange('phone')"
+                        class="card card-register d-flex flex-row"
+                        style="
+                          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                            rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+                        "
+                      >
+                        <div
+                          class="d-flex flex-column"
+                          style="height: 100%; justify-content: space-around"
+                        >
+                          <img
+                            *ngIf="type == 'phone'"
+                            class="unchecked"
+                            src="../../../../assets/img/checked.svg"
+                          />
+                          <img
+                            *ngIf="type != 'phone'"
+                            class="unchecked"
+                            src="../../../../assets/img/unchecked.svg"
+                          />
+                          <h4>{{ "REGISTER.PHONE" | translate }}</h4>
+                        </div>
+
+                        <img src="../../../../assets/img/phone.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="empty-block">
+                  <form>
+                    <div *ngIf="type == 'identity'">
+                      <label style="margin-inline: 10px">
+                        {{ "REGISTER.IDENTITY_NUMBER" | translate }}
+                        <span style="color: red"> * </span>
+                      </label>
+                      <input
+                        class="email"
+                        [placeholder]="
+                          translate.instant('REGISTER.IDENTITY_NUMBER')
+                        "
+                        style="width: 100%; display: block"
+                      />
+                    </div>
+                    <div *ngIf="type == 'email'">
+                      <label style="margin-inline: 10px">
+                        {{ "REGISTER.EMAIL" | translate }}
+                        <span style="color: red"> * </span>
+                      </label>
+                      <input
+                        class="email"
+                        (input)="validateEmail($event)"
+                        [placeholder]="
+                          translate.instant('REGISTER.EMAIL_PLACEHOLDER')
+                        "
+                        [ngClass]="{
+                          'is-invalid': emailInvalid
+                        }"
+                        style="width: 100%; display: block"
+                      />
+                      <div *ngIf="emailInvalid" class="invalid-feedback">
+                        <div style="font-weight: bold" *ngIf="emailInvalid">
+                          {{ emailError }}
+                        </div>
+                      </div>
+                    </div>
+                    <div *ngIf="type == 'phone'">
+                      <div>
+                        <label style="margin-inline: 10px">
+                          {{ "REGISTER.PHONE_NUMBER" | translate }}
+                          <span style="color: red"> * </span>
+                        </label>
+                        <ngx-intl-tel-input
+                          [ngClass]="{
+                            'is-invalid': mobileError
+                          }"
+                          [preferredCountries]="[
+                            CountryISO.UnitedStates,
+                            CountryISO.UnitedKingdom
+                          ]"
+                          [enableAutoCountrySelect]="false"
+                          [enablePlaceholder]="true"
+                          [searchCountryFlag]="true"
+                          [searchCountryField]="[
+                            SearchCountryField.Iso2,
+                            SearchCountryField.Name
+                          ]"
+                          [selectFirstCountry]="false"
+                          [selectedCountryISO]="CountryISO.India"
+                          [maxLength]="15"
+                          [phoneValidation]="true"
+                          [inputId]="'my-input-id'"
+                          name="phone"
+                          (input)="validateMobile($event)"
+                        ></ngx-intl-tel-input>
+
+                        <div *ngIf="mobileError" class="invalid-feedback">
+                          <div style="font-weight: bold" *ngIf="mobileError">
+                            {{ mobileError }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div style="display: flex; justify-content: end">
+                  <button class="buttons" mat-button matStepperNext>
+                    {{ "REGISTER.NEXT" | translate }}
+                  </button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <form>
+                <ng-template matStepLabel>
+                  {{ "REGISTER.CONFIRMATION_CODE" | translate }}
+                </ng-template>
+                <form>
+                  <h3>{{ "REGISTER.CONFIRM_PHONE_NUMBER" | translate }}</h3>
+                  <div class="row">
+                    <h6 class="text-center">
+                      {{ "REGISTER.PLEASE_TYPE_CODE" | translate }}
+                      971222222222 <br />
+                      {{ "REGISTER.TO_VERIFY" | translate }}
+                    </h6>
+                    <div class="row inputs">
+                      <div class="col-1">
+                        <input class="input-box" type="text" />
+                      </div>
+                      <div class="col-1">
+                        <input class="input-box" type="text" />
+                      </div>
+                      <div class="col-1">
+                        <input class="input-box" type="text" />
+                      </div>
+                      <div class="col-1">
+                        <input class="input-box" type="text" />
+                      </div>
+                      <div class="col-1">
+                        <input class="input-box" type="text" />
+                      </div>
+                      <div class="col-1">
+                        <input class="input-box" type="text" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <p class="text-center">
+                        {{ "REGISTER.DID_NOT_GOT_THE_MESSAGE" | translate }}
+
+                        <span style="color: #9ca3af; cursor: pointer">
+                          {{ "REGISTER.RESEND_MESSAGE" | translate }}
+                        </span>
+                      </p>
+                      <p class="text-center">
+                        {{ "REGISTER.YOU_CAN_NOT_RESEND_CODE" | translate }}
+                        <span style="color: red; margin-inline: 10px">
+                          0:28
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </form>
+                <div class="empty-block-2"></div>
+                <div style="justify-content: space-between; display: flex">
+                  <button mat-button matStepperPrevious>السابق</button>
+                  <button mat-button matStepperNext>
+                    {{ "REGISTER.NEXT" | translate }}
+                  </button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <form>
+                <ng-template matStepLabel>
+                  {{ "REGISTER.PASSWORD_TEXT" | translate }}
+                </ng-template>
+                <form>
+                  <h3>{{ "REGISTER.PASSWORD_TEXT" | translate }}</h3>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="form-group">
+                        <div class="position-relative">
+                          <label htmlFor="">
+                            {{ "REGISTER.PASSWORD" | translate }}
+                          </label>
+                          <input
+                            class="form-control"
+                            [type]="Toggledata ? 'password' : 'text'"
+                            id="password"
+                            [placeholder]="
+                              translate.instant('REGISTER.PASSWORD')
+                            "
+                          />
+                          <a href="javascript:void(0);" class="text-dark">
+                            <span
+                              [ngClass]="
+                                Toggledata === false
+                                  ? 'fas toggle-password fa-eye'
+                                  : 'fas toggle-password fa-eye-slash'
+                              "
+                            ></span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="form-group">
+                        <div class="position-relative">
+                          <label htmlFor="">
+                            {{ "REGISTER.PASSWORD_CONFIRMATION" | translate }}
+                          </label>
+                          <input
+                            class="form-control"
+                            [type]="Toggledata ? 'password' : 'text'"
+                            id="password"
+                            [placeholder]="
+                              translate.instant(
+                                'REGISTER.PASSWORD_CONFIRMATION'
+                              )
+                            "
+                          />
+                          <a href="javascript:void(0);" class="text-dark">
+                            <span
+                              [ngClass]="
+                                Toggledata === false
+                                  ? 'fas toggle-password fa-eye'
+                                  : 'fas toggle-password fa-eye-slash'
+                              "
+                            ></span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <div class="empty-block-3"></div>
+                <div style="justify-content: space-between; display: flex">
+                  <button mat-button matStepperPrevious>
+                    {{ "REGISTER.PREV" | translate }}
+                  </button>
+                  <button mat-button matStepperNext>
+                    {{ "REGISTER.NEXT" | translate }}
+                  </button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <form>
+                <ng-template matStepLabel>
+                  {{ "REGISTER.CREATE_ACCOUNT" | translate }}
+                </ng-template>
+                <form>
+                  <h3>{{ "REGISTER.CREATE_ACCOUNT" | translate }}</h3>
+                  <div class="row">
+                    <div class="col-12 confirm">
+                      <img
+                        style="width: 90px"
+                        src="../../../../assets/img/confirmed.svg"
+                      />
+                      <h4 class="mt-4">
+                        {{ "REGISTER.CREATE_ACCOUNT_DONE" | translate }}
+                      </h4>
+                    </div>
+                  </div>
+                </form>
+                <div class="empty-block-4"></div>
+                <div style="justify-content: center; display: flex">
+                  <button mat-button matStepperNext>
+                    {{ "REGISTER.START" | translate }}
+                  </button>
+                </div>
+              </form>
+            </mat-step>
+          </mat-stepper>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer style="position: relative">
+  <p
+    style="
+      position: absolute;
+      bottom: 35px;
+      color: #1d4ba3;
+      z-index: 2222222222;
+      left: 20%;
+      font-weight: bold;
+    "
+  >
+    هيئة الشارقة للتعليم الخاص ©{{ currentYear }} جميع الحقوق محفوظة
+  </p>
+  <img style="width: 100%" src="../../../../assets/img/white_footer.svg" />
+</footer>

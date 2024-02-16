@@ -1,0 +1,32 @@
+{
+    "welcome": "Welcome!",
+    "hello": "Hello",
+    "REGISTER":{
+        "CREATE_NEW_USER": "Create new user account        ",
+        "REGISTER_WAY": "Register Way",
+        "CONFIRMATION_CODE": "Confirmation Code",
+        "PASSWORD_TEXT": "Password Text",
+        "CREATE_ACCOUNT": "Create Account",
+        "EMAIL": "Email",
+        "PHONE": "Phone Number",
+        "IDENTITY": "Emirates Id",
+        "NEXT": "Next",
+        "PREV": "Previous",
+        "IDENTITY_NUMBER": "Emirates Id",
+        "PHONE_NUMBER": "Phone Number",
+        "CONFIRM_PHONE_NUMBER": "Confirm Phone Number",
+        "DID_NOT_GOT_THE_MESSAGE": "Didn't receive the message?",
+        "RESEND_MESSAGE": "Resend Message",
+        "YOU_CAN_NOT_RESEND_CODE": "You can't resend the code yet",
+        "PLEASE_TYPE_CODE": "Please type the code",
+        "TO_VERIFY": "to verify",
+        "PASSWORD": "Password",
+        "PASSWORD_CONFIRMATION": "Password Confirmation",
+        "CREATE_ACCOUNT_DONE": "Create Account Done",
+        "START": "Start",
+
+
+        "EMAIL_PLACEHOLDER":" Enter email "
+
+    }
+  }

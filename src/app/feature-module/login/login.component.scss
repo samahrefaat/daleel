@@ -1,0 +1,19 @@
+.toggle-password {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+}
+
+.logo-login {
+  margin-inline: 50%; margin-block: 10px
+}
+@media only screen and (max-width: 1400px) {
+  .logo-login {
+    margin-inline: 30%; margin-block: 10px
+  }
+}
+@media only screen and (max-width: 1300px) {
+  .logo-login {
+    margin-inline: 10%; margin-block: 10px
+  }
+}

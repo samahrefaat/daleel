@@ -1,0 +1,478 @@
+<!-- Page Wrapper -->
+
+<div class="content container-fluid card-body-center">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="page-sub-header d-flex flex-column align-items-start">
+          <h3 class="page-title">لوحة التحكم</h3>
+          <ul class="breadcrumb" style="margin-left: auto; margin-right: 0px">
+            <li class="breadcrumb-item">
+              <a [routerLink]="'/dashboard/dashboard-main'">الصفحة الرئيسية</a>
+            </li>
+            <li class="breadcrumb-item active">لوحة التحكم</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+
+  <!-- Overview Section -->
+  <div class="row mb-4">
+    <h3 class="mt-3 mb-3">إحصائية المدارس</h3>
+
+    <owl-carousel-o [options]="customOptions" rtl="true">
+      <ng-template carouselSlide>
+        <div class="col-12 d-flex">
+          <div class="card bg-comman w-100 m-2">
+            <div class="card-body">
+              <div
+                class="w-100 db-widgets d-flex justify-content-between align-items-center"
+              >
+                <div class="d-flex justify-content-center align-items-center">
+                  <img
+                    class="image-card"
+                    src="../../../../assets/img/school.svg"
+                  />
+                </div>
+                <div class="line-vertiacl"></div>
+                <div class="db-info">
+                  <h5 class="m-2" style="color: #3c557a">300</h5>
+
+                  <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="col-12 d-flex">
+          <a [routerLink]="'/dashboard/student'" style="width: 96%">
+            <div class="card bg-comman w-100 m-2">
+              <div class="card-body">
+                <div
+                  class="w-100 db-widgets d-flex justify-content-between align-items-center"
+                >
+                  <div class="d-flex justify-content-center align-items-center">
+                    <img
+                      class="image-card"
+                      src="../../../../assets/img/content.svg"
+                    />
+                  </div>
+                  <div class="line-vertiacl"></div>
+                  <div class="db-info">
+                    <h5 class="m-2" style="color: #3c557a">300</h5>
+
+                    <h4 class="m-2" style="color: #1d4ba3">
+                      إجمالي عدد المناهج
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="col-12 d-flex">
+          <a [routerLink]="'/dashboard/disablity-student'" style="width: 96%">
+            <div class="card bg-comman w-100 m-2">
+              <div class="card-body">
+                <div
+                  class="w-100 db-widgets d-flex justify-content-between align-items-center"
+                >
+                  <div class="d-flex justify-content-center align-items-center">
+                    <img
+                      class="image-card"
+                      src="../../../../assets/img/teacher.svg"
+                    />
+                  </div>
+                  <div class="line-vertiacl"></div>
+                  <div class="db-info">
+                    <h5 class="m-2" style="color: #3c557a">300</h5>
+
+                    <h4 class="m-2" style="color: #1d4ba3">
+                      إجمالي عدد المعلمين
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="col-12 d-flex">
+          <a [routerLink]="'/dashboard/teachers'" style="width: 96%">
+            <div class="card bg-comman w-100 m-2">
+              <div class="card-body">
+                <div
+                  class="w-100 db-widgets d-flex justify-content-between align-items-center"
+                >
+                  <div class="d-flex justify-content-center align-items-center">
+                    <img
+                      class="image-card"
+                      src="../../../../assets/img/student.svg"
+                    />
+                  </div>
+                  <div class="line-vertiacl"></div>
+                  <div class="db-info">
+                    <h5 class="m-2" style="color: #3c557a">300</h5>
+
+                    <h4 class="m-2" style="color: #1d4ba3">
+                      إجمالي عدد الطلاب
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+  </div>
+  <!-- /Overview Section -->
+  <div class="row">
+    <div class="col-xl-7 col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">عدد المدارس وفقا للمناهج</h3>
+        </div>
+        <div class="card-body bar">
+          <div id="chart" class="text-blue">
+            <apx-chart
+              [grid]="chartOptionsOne.grid"
+              [series]="chartOptionsOne.series"
+              [chart]="chartOptionsOne.chart"
+              [dataLabels]="chartOptionsOne.dataLabels"
+              [plotOptions]="chartOptionsOne.plotOptions"
+              [yaxis]="chartOptionsOne.yaxis"
+              [legend]="chartOptionsOne.legend"
+              [fill]="chartOptionsOne.fill"
+              [stroke]="chartOptionsOne.stroke"
+              [tooltip]="chartOptionsOne.tooltip"
+              [xaxis]="chartOptionsOne.xaxis"
+              [responsive]="chartOptionsOne.responsive"
+            ></apx-chart>
+            <!-- <apx-chart
+              [grid]="chartOptionsFive.grid"
+              [fill]="chartOptionsFive.fill"
+              [series]="chartOptionsFive.series"
+              [chart]="chartOptionsFive.chart"
+              [dataLabels]="chartOptionsFive.dataLabels"
+              [plotOptions]="chartOptionsFive.plotOptions"
+              [xaxis]="chartOptionsFive.xaxis"
+              [yaxis]="chartOptionsFive.yaxis"
+              [legend]="chartOptionsFive.legend"
+            ></apx-chart> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-5 col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">عدد المدارس وفقا للمدينة والمنهج</h3>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 col-11">
+            <label style="margin-inline: 10px; color: #e7e7e7">المنهج</label>
+            <select class="form-select">
+              <option>المنهج</option>
+              <option>Option 1</option>
+              <option>Option 2</option>
+              <option>Option 3</option>
+              <option>Option 4</option>
+              <option>Option 5</option>
+            </select>
+          </div>
+        </div>
+        <div class="card-body bar" style="padding: 0px">
+          <div id="chart">
+            <apx-chart
+              [grid]="chartOptionsTwo.grid"
+              [fill]="chartOptionsTwo.fill"
+              [series]="chartOptionsTwo.series"
+              [chart]="chartOptionsTwo.chart"
+              [dataLabels]="chartOptionsTwo.dataLabels"
+              [plotOptions]="chartOptionsTwo.plotOptions"
+              [xaxis]="chartOptionsTwo.xaxis"
+              [yaxis]="chartOptionsTwo.yaxis"
+              [legend]="chartOptionsTwo.legend"
+              [responsive]="chartOptionsTwo.responsive"
+            ></apx-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">إحصائية عدد الشعب الصفية</h3>
+      </div>
+      <div class="form-group row w-100 mt-2">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-lg-3 col-12">
+              <label style="margin-inline: 10px">المنطقة</label>
+
+              <select class="form-select">
+                <option>المنطقة</option>
+                <option value="1">California</option>
+                <option value="2">Texas</option>
+                <option value="3">Florida</option>
+              </select>
+            </div>
+            <div class="col-lg-3 col-12">
+              <label style="margin-inline: 10px">المنهج</label>
+
+              <select class="form-select">
+                <option>المنهج</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+                <option>Option 5</option>
+              </select>
+            </div>
+            <div class="col-lg-3 col-12">
+              <label style="margin-inline: 10px">المدرسة</label>
+
+              <select class="form-select">
+                <option>المدرسة</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+                <option>Option 5</option>
+              </select>
+            </div>
+            <div class="col-lg-3 col-12">
+              <label style="margin-inline: 10px">الصف</label>
+
+              <select class="form-select">
+                <option>الصف</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+                <option>Option 5</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body bar">
+        <div class="row">
+          <div
+            class="col-lg-3 mt-3 col-12 d-flex justify-content-center align-items-center"
+          >
+            <div
+              class="card-body small-card d-flex flex-row justify-content-around align-items-center"
+            >
+              <div id="chart">
+                <apx-chart
+                  [fill]="chartOptionsTotalBranches.fill"
+                  [series]="chartOptionsTotalBranches.series"
+                  [chart]="chartOptionsTotalBranches.chart"
+                  [plotOptions]="chartOptionsTotalBranches.plotOptions"
+                  [labels]="chartOptionsTotalBranches.labels"
+                  [stroke]="chartOptionsTotalBranches.stroke"
+                ></apx-chart>
+              </div>
+              <div class="d-flex flex-column" style="color: #1d6ba3">
+                <h3 style="color: #1d6ba3">92</h3>
+                <h5 class="card-title text-center">إجمالي عدد الشعب</h5>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 mt-3 col-12 d-flex justify-content-center align-items-center"
+          >
+            <div
+              class="card-body small-card d-flex flex-row justify-content-around align-items-center"
+            >
+              <div id="chart">
+                <apx-chart
+                  [fill]="chartOptionsTotalBranchesCompleted.fill"
+                  [series]="chartOptionsTotalBranchesCompleted.series"
+                  [chart]="chartOptionsTotalBranchesCompleted.chart"
+                  [plotOptions]="chartOptionsTotalBranchesCompleted.plotOptions"
+                  [labels]="chartOptionsTotalBranchesCompleted.labels"
+                  [stroke]="chartOptionsTotalBranchesCompleted.stroke"
+                ></apx-chart>
+              </div>
+              <div class="d-flex flex-column">
+                <h3 style="color: #92be33">92</h3>
+                <h5 style="color: #92be33" class="card-title text-center">
+                  الشعب المكتملة
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 mt-3 col-12 d-flex justify-content-center align-items-center"
+          >
+            <div
+              class="card-body small-card d-flex flex-row justify-content-around align-items-center"
+            >
+              <div id="chart">
+                <apx-chart
+                  [fill]="chartOptionsTotalBranchesUncompleted.fill"
+                  [series]="chartOptionsTotalBranchesUncompleted.series"
+                  [chart]="chartOptionsTotalBranchesUncompleted.chart"
+                  [plotOptions]="
+                    chartOptionsTotalBranchesUncompleted.plotOptions
+                  "
+                  [labels]="chartOptionsTotalBranchesUncompleted.labels"
+                  [stroke]="chartOptionsTotalBranchesUncompleted.stroke"
+                ></apx-chart>
+              </div>
+              <div class="d-flex flex-column">
+                <h3 style="color: #fbb34d">92</h3>
+                <h5 style="color: #fbb34d" class="card-title text-center">
+                  الشعب الغير مكتملة
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 mt-3 col-12 d-flex justify-content-center align-items-center"
+          >
+            <div
+              class="card-body small-card d-flex flex-row justify-content-around align-items-center"
+            >
+              <div id="chart">
+                <apx-chart
+                  [fill]="chartOptionsTotalBranchesEmpty.fill"
+                  [series]="chartOptionsTotalBranchesEmpty.series"
+                  [chart]="chartOptionsTotalBranchesEmpty.chart"
+                  [plotOptions]="chartOptionsTotalBranchesEmpty.plotOptions"
+                  [labels]="chartOptionsTotalBranchesEmpty.labels"
+                  [stroke]="chartOptionsTotalBranchesEmpty.stroke"
+                ></apx-chart>
+              </div>
+              <div class="d-flex flex-column">
+                <h3 style="color: #ff624d">92</h3>
+                <h5 style="color: #ff624d" class="card-title text-center">
+                  الشعب الفارغة
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-6 col-12 d-flex mt-5 justify-content-between">
+            <div style="width: 100%">
+              <h5 class="card-title text-center text-bold mt-3">
+                إحصائيات المدارس وفقاً للدرجات
+              </h5>
+
+              <div
+                class="card-body d-flex justify-content-between align-items-center"
+              >
+                <div id="chart">
+                  <apx-chart
+                    [fill]="chartOptionsMultiRadial.fill"
+                    [series]="chartOptionsMultiRadial.series"
+                    [chart]="chartOptionsMultiRadial.chart"
+                    [plotOptions]="chartOptionsMultiRadial.plotOptions"
+                    [labels]="chartOptionsMultiRadial.labels"
+                    [stroke]="chartOptionsMultiRadial.stroke"
+                  ></apx-chart>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="d-flex">
+                    <div
+                      style="
+                        background-color: #fbb34d;
+                        border-radius: 20px;
+                        height: 35px;
+                        width: 8px;
+                        margin: 5px;
+                      "
+                    ></div>
+                    <p style="color: #737373">
+                      المدارس التي انتهت <br />من ادخال كافة درجات المواد
+                    </p>
+                  </div>
+                  <div class="d-flex">
+                    <div
+                      style="
+                        background-color: #0e8a74;
+                        border-radius: 20px;
+                        height: 35px;
+                        width: 8px;
+                        margin: 5px;
+                      "
+                    ></div>
+                    <p style="color: #737373">
+                      المدارس التي لم تنتهي <br />من إدخال كل درجات المواد
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-6 col-12 mt-5 d-flex justify-content-between">
+            <div style="width: 100%">
+              <h5 class="card-title text-center text-bold mt-3">
+                إحصائيات الطلاب وفقاً للدرجات
+              </h5>
+
+              <div
+                class="card-body d-flex justify-content-between align-items-center"
+              >
+                <div id="chart">
+                  <apx-chart
+                    [fill]="chartOptionsMultiRadial.fill"
+                    [series]="chartOptionsMultiRadial.series"
+                    [chart]="chartOptionsMultiRadial.chart"
+                    [plotOptions]="chartOptionsMultiRadial.plotOptions"
+                    [labels]="chartOptionsMultiRadial.labels"
+                    [stroke]="chartOptionsMultiRadial.stroke"
+                  ></apx-chart>
+                </div>
+                <div class="d-flex flex-column">
+                  <div class="d-flex">
+                    <div
+                      style="
+                        background-color: #fbb34d;
+                        border-radius: 20px;
+                        height: 35px;
+                        width: 8px;
+                        margin: 5px;
+                      "
+                    ></div>
+                    <p style="color: #737373">
+                      الطلاب المكتمل<br />إدخال درجاتهم
+                    </p>
+                  </div>
+                  <div class="d-flex">
+                    <div
+                      style="
+                        background-color: #0e8a74;
+                        border-radius: 20px;
+                        height: 35px;
+                        width: 8px;
+                        margin: 5px;
+                      "
+                    ></div>
+                    <p style="color: #737373">
+                      الطلاب الغير مكتمل <br />إدخال درجاتهم
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Page Wrapper -->

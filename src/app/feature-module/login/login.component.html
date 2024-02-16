@@ -1,0 +1,177 @@
+<!-- Main Wrapper -->
+<div class="main-wrapper login-body">
+  <img src="../../../assets/img/logo.png" class="logo-login" />
+  <div class="login-wrapper">
+    <div class="container">
+      <div class="loginbox row">
+        <div class="col-6"></div>
+        <div class="login-right col-6">
+          <div class="login-right-wrap">
+            <p>مرحباً بكم 👋</p>
+            <h1>تسجيل الدخول</h1>
+            <span style="color: #86dcff"
+              >يرجى إدخال البريد الإلكتروني وكلمة المرور</span
+            >
+
+            <!-- Form -->
+            <form [formGroup]="form" (ngSubmit)="submit()">
+              <div class="form-group">
+                <label htmlFor="">
+                  البريد الإلكتروني / رقم الهاتف المحمول
+                  <span style="color: red">*</span>
+                </label>
+                <input
+                  class="form-control"
+                  placeholder="البريد الإلكتروني / رقم الهاتف المحمول "
+                  class="form-control"
+                  type="text"
+                  formControlName="email"
+                  id="email"
+                  [ngClass]="{
+                    'is-invalid': f['email'].touched && f['email'].invalid
+                  }"
+                />
+
+                <div
+                  *ngIf="f['email'].touched && f['email'].invalid"
+                  class="invalid-feedback"
+                >
+                  <div
+                    style="font-weight: bold"
+                    *ngIf="f['email'].errors && f['email'].errors['required']"
+                  >
+                    حقل إلزامي
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="position-relative">
+                  <label htmlFor=""
+                    >كلمة المرور
+                    <span style="color: red">*</span>
+                  </label>
+                  <input
+                    class="form-control"
+                    [type]="Toggledata ? 'password' : 'text'"
+                    formControlName="password"
+                    id="password"
+                    [ngClass]="{
+                      'is-invalid':
+                        f['password'].touched && f['password'].invalid
+                    }"
+                    placeholder="كلمة المرور"
+                  />
+                  <a
+                    href="javascript:void(0);"
+                    class="text-dark"
+                    (click)="iconLogle()"
+                  >
+                    <span
+                      [ngClass]="
+                        Toggledata === false
+                          ? 'fas toggle-password fa-eye'
+                          : 'fas toggle-password fa-eye-slash'
+                      "
+                    ></span>
+                  </a>
+                </div>
+                <div
+                  *ngIf="f['password'].touched && f['password'].invalid"
+                  class="invalid-feedback"
+                >
+                  <div
+                    style="font-weight: bold"
+                    *ngIf="
+                      f['password'].errors && f['password'].errors['required']
+                    "
+                  >
+                    حقل إلزامي
+                  </div>
+                </div>
+              </div>
+              <div class="forgotpass">
+                <a
+                  [routerLink]="'/forgotpassword'"
+                  style="color: #86dcff; text-align: right"
+                >
+                  نسيت كلمة المرور</a
+                >
+              </div>
+              <div class="form-group">
+                <button
+                  class="btn btn-primary w-100"
+                  type="submit"
+                  style="
+                    background-color: #92be33;
+                    border-radius: 15px;
+                    height: 45px;
+                    font-size: 22px;
+                  "
+                  [disabled]="form.invalid"
+                >
+                  تسجيل الدخول
+                </button>
+              </div>
+
+              <div class="form-group">
+                <button
+                  class="btn btn-primary w-100"
+                  type="submit"
+                  style="
+                    background-color: white;
+                    border-radius: 15px;
+                    color: black;
+                    height: 45px;
+                    font-size: 22px;
+                  "
+                  [disabled]="form.invalid"
+                >
+                  <img
+                    style="margin-inline: 10px"
+                    src="../../../assets/img/UAEPASS_Logo.svg"
+                  />
+                  تسجيل الدخول بالهوية الرقمية
+                </button>
+              </div>
+              <p
+                tooltip=" UAE PASS هو هوية رقمية واحدة موثوق بها لجميع المواطنين والمقيمين في الإمارات العربية المتحدة"
+                placement="bottom"
+                style="
+                  color: white;
+                  cursor: pointer;
+                  text-align: center;
+                  margin-bottom: 0px;
+                "
+              >
+                ما هي الهوية الرقمية
+              </p>
+              <p style="text-align: center; margin-top: 5px">
+                ليس لديك حساب؟
+                <span style="color: #86dcff; font-weight: bold">
+                  <a style="color: #86dcff; font-weight: bold" href="/register">
+                    إنشاء حساب جديد
+                  </a>
+                </span>
+              </p>
+            </form>
+            <!-- /Form -->
+            <!-- /Form -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p
+    style="
+      position: absolute;
+      bottom: 0px;
+      color: #1d4ba3;
+      z-index: 2222222222;
+      right: 5%;
+      font-weight: bold;
+    "
+  >
+    هيئة الشارقة للتعليم الخاص ©{{ currentYear }} جميع الحقوق محفوظة
+  </p>
+</div>
+<!-- /Main Wrapper -->

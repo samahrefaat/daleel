@@ -1,0 +1,33 @@
+{
+  "welcome": "Welcome!",
+  "hello": "Hello",
+  "REGISTER":{
+      "CREATE_NEW_USER": "  إنشاء مستخدم جديد      ",
+      "REGISTER_WAY": "طريقة التسجيل",
+      "CONFIRMATION_CODE": "رمز التأكيد",
+      "PASSWORD_TEXT": "تعيين كلمة المرور",
+      "CREATE_ACCOUNT": "إنشاء الحساب",
+      "EMAIL": "البريد الإلكتروني",
+      "PHONE": "الهاتف",
+      "IDENTITY": "الهوية      ",
+      "NEXT": "التالي",
+      "PREV": "السابق",
+      "IDENTITY_NUMBER": "رقم الهوية الاماراتية",
+      "PHONE_NUMBER": "رقم الهاتف ",
+      "CONFIRM_PHONE_NUMBER": "تأكيد رقم الهاتف",
+      "DID_NOT_GOT_THE_MESSAGE": "الرسالة لم تصلك؟",
+      "RESEND_MESSAGE": "إعادة إرسال رقم التحقق",
+      "YOU_CAN_NOT_RESEND_CODE": "لن يمكنك إعادة إرسال الكود إلا بعد دقيقة",
+      "PLEASE_TYPE_CODE": "برجاء إدخال الرقم الذى تم إرساله علي الرقم",
+      "TO_VERIFY": "حتى نتحقق من الحساب",
+      "PASSWORD": "كلمة المرور",
+      "PASSWORD_CONFIRMATION": "تأكيد كلمة المرور",
+      "CREATE_ACCOUNT_DONE": "  تم إنشاء الحساب بنجاح",
+      "START": "الدخول",
+
+
+      "EMAIL_PLACEHOLDER":"أدخل البريد الإلكتروني"
+
+
+  }
+}
