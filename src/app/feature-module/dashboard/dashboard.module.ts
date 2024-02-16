@@ -13,6 +13,8 @@ import { DashboardStudentComponent } from './dashboard-students/dashboard-main.c
 import { DashboardDisablityStudentComponent } from './dashboard-disablity-students/dashboard-disablity-students.component';
 import { DashboardTeachersComponent } from './dashboard-teachers/dashboard-teachers.component';
 import { DashboardMain2Component } from './dashboard-main-2/dashboard-main-2.component';
+import { DashboardMComponent } from './dashboard/dashboard.component';
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -22,12 +24,14 @@ import { DashboardMain2Component } from './dashboard-main-2/dashboard-main-2.com
     DashboardDisablityStudentComponent,
     DashboardTeachersComponent,
     DashboardMain2Component,
+    DashboardMComponent,
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     NgApexchartsModule,
     CarouselModule,
+    CalendarModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,

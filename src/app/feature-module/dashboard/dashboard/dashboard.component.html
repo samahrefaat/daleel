@@ -1,0 +1,1160 @@
+<!-- Page Wrapper -->
+
+<div class="content container-fluid card-body-center">
+  <!-- Page Header -->
+  <div class="page-header">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="page-sub-header d-flex flex-column align-items-start">
+          <h3 class="page-title">لوحة التحكم</h3>
+          <ul class="breadcrumb" style="margin-left: auto; margin-right: 0px">
+            <li class="breadcrumb-item">
+              <a [routerLink]="'/dashboard/dashboard-main'">الصفحة الرئيسية</a>
+            </li>
+            <li class="breadcrumb-item active">لوحة التحكم</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Page Header -->
+  <div class="card">
+    <div class="pb-4 pt-4 p-4 d-flex justify-content-start align-items-center">
+      <p class="mb-0" style="color: #2e50a3">
+        يرجى تحديد الابن لعرض معلومات الحضور والطلبات
+      </p>
+      <select class="form-select w-20 son" style="margin: 0px">
+        <option>مروان</option>
+      </select>
+    </div>
+    <div class="row p-3">
+      <div class="col-xl-4 col-md-12 col-12">
+        <div class="card" style="height: 93%">
+          <div class="">
+            <h3 class="card-title">الحضور والغياب</h3>
+          </div>
+          <div class="card-body">
+            <div id="chart">
+              <apx-chart
+                [dataLabels]="AttendanceChart.dataLabels"
+                [colors]="colors"
+                [series]="AttendanceChart.series"
+                [chart]="AttendanceChart.chart"
+                [labels]="AttendanceChart.labels"
+                [responsive]="AttendanceChart.responsive"
+                [stroke]="AttendanceChart.stroke"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4" style="border-right: 1px solid gray">
+        <div class="">
+          <h3 class="card-title">سجل الحضور</h3>
+        </div>
+        <div class="row">
+          <div
+            class="col-3 d-flex flex-row justify-content-center align-items-center"
+          >
+            <div class="dot-attedenance"></div>
+            <p class="mb-0 mr-1 ml-1" style="margin-inline: 8px">حضور</p>
+          </div>
+          <div
+            class="col-3 d-flex flex-row justify-content-center align-items-center"
+          >
+            <div class="dot-late"></div>
+            <p class="mb-0 mr-1 ml-1" style="margin-inline: 8px">متأخر</p>
+          </div>
+          <div
+            class="col-3 d-flex flex-row justify-content-center align-items-center"
+          >
+            <div class="dot-absence"></div>
+            <p class="mb-0 mr-1 ml-1" style="margin-inline: 8px">غياب</p>
+          </div>
+          <div
+            class="col-3 d-flex flex-row justify-content-center align-items-center"
+          >
+            <div class="dot-disabled"></div>
+            <p class="mb-0 mr-1 ml-1" style="margin-inline: 8px">
+              عطلة الاسبوع
+            </p>
+          </div>
+        </div>
+        <ejs-calendar
+          (renderDayCell)="renderDayCell($event)"
+          [isMultiSelection]="true"
+          [values]="dateValues"
+          style="max-width: 100%; width: 100%; border: unset"
+        >
+        </ejs-calendar>
+      </div>
+      <div
+        class="col-4 d-flex justify-content-between align-items-center flex-column"
+        style="border-right: 1px solid #7d7d7d"
+      >
+        <div
+          class="d-flex justify-content-between align-items-center w-100"
+          style="margin-inline: 10px"
+        >
+          <h4>شهادة التقييم</h4>
+          <button class="btn">طباعة</button>
+        </div>
+        <div class="w-100 mt-2 mb-2">
+          <label style="color: #e7e7e7">الفصل الدراسي</label>
+          <select class="form-select" style="margin: 0px">
+            <option>الفصل الدراسي</option>
+          </select>
+        </div>
+        <div class="box w-100" style="margin-inline: 10px; overflow-x: hidden">
+          <div class="header-2">
+            <div class="row" style="background-color: #f3f3f3; padding: 10px">
+              <div class="col-6 text-center">
+                <h6 class="text-center">اسم المادة</h6>
+              </div>
+              <div class="col-6">
+                <h6 class="text-center">النتائج</h6>
+              </div>
+            </div>
+          </div>
+          <div class="body-2">
+            <div class="row">
+              <div
+                class="col-6 text-center"
+                style="
+                  border-bottom: 1px solid #7d7d7d;
+                  border-left: 1px solid #7d7d7d;
+                "
+              >
+                <h6 class="text-center m-1" style="color: #3c557a">
+                  اللغة العربية
+                </h6>
+              </div>
+              <div class="col-6" style="border-bottom: 1px solid #7d7d7d">
+                <h6 class="text-center m-1" style="color: green">ناجح</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div
+                class="col-6 text-center"
+                style="
+                  border-bottom: 1px solid #7d7d7d;
+                  border-left: 1px solid #7d7d7d;
+                "
+              >
+                <h6 class="text-center m-1" style="color: #3c557a">
+                  اللغة العربية
+                </h6>
+              </div>
+              <div class="col-6" style="border-bottom: 1px solid #7d7d7d">
+                <h6 class="text-center m-1" style="color: green">ناجح</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div
+                class="col-6 text-center"
+                style="
+                  border-bottom: 1px solid #7d7d7d;
+                  border-left: 1px solid #7d7d7d;
+                "
+              >
+                <h6 class="text-center m-1" style="color: #3c557a">
+                  اللغة العربية
+                </h6>
+              </div>
+              <div class="col-6" style="border-bottom: 1px solid #7d7d7d">
+                <h6 class="text-center m-1" style="color: green">ناجح</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div
+                class="col-6 text-center"
+                style="
+                  border-bottom: 1px solid #7d7d7d;
+                  border-left: 1px solid #7d7d7d;
+                "
+              >
+                <h6 class="text-center m-1" style="color: #3c557a">
+                  اللغة العربية
+                </h6>
+              </div>
+              <div class="col-6" style="border-bottom: 1px solid #7d7d7d">
+                <h6 class="text-center m-1" style="color: green">ناجح</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card pt-5 pb-5">
+    <div class="row">
+      <div class="col-6">
+        <div
+          class="d-flex justify-content-between align-items-center w-80 mb-4"
+          style="margin-inline: 10px"
+        >
+          <h3>الأبناء المسجلين</h3>
+          <button class="btn-lg">إضافة ابن جديد</button>
+        </div>
+        <owl-carousel-o [options]="customOptions" rtl="true">
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="text-center" style="color: #717579">
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="text-center" style="color: #717579">
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman w-100 m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="text-center" style="color: #717579">
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman w-100 m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="text-center" style="color: #717579">
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+        <div
+          class="line horizontal-line"
+          style="border-bottom: 1px solid #7d7d7d"
+        ></div>
+      </div>
+      <div class="col-6" style="border-right: 2px solid #7d7d7d">
+        <div
+          class="d-flex justify-content-between align-items-center w-80 mb-4"
+          style="margin-inline: 10px"
+        >
+          <h3>الأبناء الغير مسجلين</h3>
+        </div>
+        <owl-carousel-o [options]="customOptions" rtl="true">
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman w-100 m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman w-100 m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+        <div
+          class="line horizontal-line"
+          style="border-bottom: 1px solid #7d7d7d"
+        ></div>
+      </div>
+      <div class="col-6 pt-3" style="border-right: 2px solid #7d7d7d">
+        <div
+          class="d-flex justify-content-between align-items-center w-80 mb-4"
+          style="margin-inline: 10px"
+        >
+          <h3>الأبناء المنسحبين</h3>
+        </div>
+        <owl-carousel-o [options]="customOptions" rtl="true">
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman w-100 m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman w-100 m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+      <div class="col-6 pt-3" style="border-right: 2px solid #7d7d7d">
+        <div
+          class="d-flex justify-content-between align-items-center w-80 mb-4"
+          style="margin-inline: 10px"
+        >
+          <h3>الابناء الذين انهو السنة الدراسية</h3>
+        </div>
+        <owl-carousel-o [options]="customOptions" rtl="true">
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman w-100 m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman w-100 m-2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/user.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-2" style="color: #3c557a">يوسف أحمد</p>
+                      <p
+                        class="text-center"
+                        style="color: #717579; visibility: hidden"
+                      >
+                        الصف الأول
+                        <br />
+                        مدرسة الشارقة الخاصه بنين
+                      </p>
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+
+    <div class="row"></div>
+  </div>
+
+  <div class="card pt-3 pb-5">
+    <div class="row">
+      <div class="col-12">
+        <div
+          class="d-flex justify-content-between align-items-center w-80 mb-4"
+          style="margin-inline: 10px"
+        >
+          <h3>الشهادات</h3>
+        </div>
+        <owl-carousel-o [options]="customOptionsCert" rtl="true">
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman p-2 pb-4" style="background-color: #ededf2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <p style="color: #616161">شهادة التقييم</p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/cert.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-0 mt-1" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="m-1" style="color: green">مدفوعة</p>
+
+                      <button class="btn-sm">الإطلاع</button>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman p-2 pb-4" style="background-color: #ededf2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <p style="color: #616161">شهادة التقييم</p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/cert.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-0 mt-1" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="m-1" style="color: green">مدفوعة</p>
+
+                      <button class="btn-sm">الإطلاع</button>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman p-2 pb-4" style="background-color: #ededf2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <p style="color: #616161">شهادة التقييم</p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/cert.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-0 mt-1" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="m-1" style="color: green">مدفوعة</p>
+
+                      <button class="btn-sm">الإطلاع</button>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> </ng-template
+          ><ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman p-2 pb-4" style="background-color: #ededf2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <p style="color: #616161">شهادة التقييم</p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/cert.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-0 mt-1" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="m-1" style="color: green">مدفوعة</p>
+
+                      <button class="btn-sm">الإطلاع</button>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman p-2 pb-4" style="background-color: #ededf2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <p style="color: #616161">شهادة التقييم</p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/cert.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-0 mt-1" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="m-1" style="color: green">مدفوعة</p>
+
+                      <button class="btn-sm">الإطلاع</button>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman p-2 pb-4" style="background-color: #ededf2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <p style="color: #616161">شهادة التقييم</p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/cert.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-0 mt-1" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="m-1" style="color: green">مدفوعة</p>
+
+                      <button class="btn-sm">الإطلاع</button>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman p-2 pb-4" style="background-color: #ededf2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <p style="color: #616161">شهادة التقييم</p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/cert.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-0 mt-1" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="m-1" style="color: green">مدفوعة</p>
+
+                      <button class="btn-sm">الإطلاع</button>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="">
+              <div class="bg-comman p-2 pb-4" style="background-color: #ededf2">
+                <div class="">
+                  <div
+                    class="w-100 db-widgets d-flex justify-content-center flex-column align-items-center"
+                  >
+                    <p style="color: #616161">شهادة التقييم</p>
+                    <div
+                      class="d-flex justify-content-center align-items-center"
+                    >
+                      <img
+                        class="image-card"
+                        src="../../../../assets/img/cert.svg"
+                      />
+                    </div>
+                    <div
+                      class="db-info d-flex justify-content-center flex-column align-items-center"
+                    >
+                      <p class="m-0 mt-1" style="color: #3c557a">يوسف أحمد</p>
+                      <p class="m-1" style="color: green">مدفوعة</p>
+
+                      <button class="btn-sm">الإطلاع</button>
+
+                      <!-- <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+
+    <div class="row"></div>
+  </div>
+
+  <div class="card pt-3 pb-5">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">اخر خمسة طلبات</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped mb-0">
+                <thead>
+                  <tr>
+                    <th>رقم الطلب</th>
+                    <th>نوع الطلب</th>
+                    <th>الطلب مرتبط ب</th>
+                    <th>المدرسة</th>
+                    <th>حالة الطلب</th>
+                    <td></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>5644638HG4</td>
+                    <td>إرسال طلب تسجيل</td>
+                    <td>احمد</td>
+                    <td>
+                      مدرسة الشارقة الخاصة
+                      <p>الصف الثاني عشر</p>
+                    </td>
+                    <td>
+                      <button class="btn-colored">موافقة نهائية</button>
+                    </td>
+
+                    <td>
+                      <button class="btn-outline">التفاصيل</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5644638HG4</td>
+                    <td>إرسال طلب تسجيل</td>
+                    <td>احمد</td>
+                    <td>
+                      مدرسة الشارقة الخاصة
+                      <p>الصف الثاني عشر</p>
+                    </td>
+                    <td>
+                      <button class="btn-colored bg-warning">
+                        موافقة نهائية
+                      </button>
+                    </td>
+
+                    <td>
+                      <button class="btn-outline">التفاصيل</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5644638HG4</td>
+                    <td>إرسال طلب تسجيل</td>
+                    <td>احمد</td>
+                    <td>
+                      مدرسة الشارقة الخاصة
+                      <p>الصف الثاني عشر</p>
+                    </td>
+                    <td>
+                      <button class="btn-colored">موافقة نهائية</button>
+                    </td>
+
+                    <td>
+                      <button class="btn-outline">التفاصيل</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5644638HG4</td>
+                    <td>إرسال طلب تسجيل</td>
+                    <td>احمد</td>
+                    <td>
+                      مدرسة الشارقة الخاصة
+                      <p>الصف الثاني عشر</p>
+                    </td>
+                    <td>
+                      <button class="btn-colored">موافقة نهائية</button>
+                    </td>
+
+                    <td>
+                      <button class="btn-outline">التفاصيل</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5644638HG4</td>
+                    <td>إرسال طلب تسجيل</td>
+                    <td>احمد</td>
+                    <td>
+                      مدرسة الشارقة الخاصة
+                      <p>الصف الثاني عشر</p>
+                    </td>
+                    <td>
+                      <button class="btn-colored bg-danger">
+                        موافقة نهائية
+                      </button>
+                    </td>
+
+                    <td>
+                      <button class="btn-outline">التفاصيل</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Page Wrapper -->

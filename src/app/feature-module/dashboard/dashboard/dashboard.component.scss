@@ -1,0 +1,128 @@
+
+.form-select {
+    border: 1px solid #E7E7E7;
+    box-shadow: none;
+    color: #E7E7E7;
+    font-size: 15px;
+    height: 45px;
+    margin-inline: 10px;
+}
+
+.btn{
+    background: #2E50A3;
+    color: white;
+    border-radius: 9px;
+    width: 75px;
+    border: unset;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h6{
+    padding-block: 5px;
+}
+select.son  {
+    margin: 0px;
+    width: 200px;
+    border: 1px solid #2E50A3;
+    color: #2E50A3;
+    border-radius: 15px;
+    margin-inline: 15px !important;
+    margin-bottom: 0px;
+}
+.bg-comman {
+    box-shadow: unset !important;
+}
+.btn-lg{
+    background: #2E50A3;
+    color: white;
+    border-radius: 12px;
+    width: 160px;
+    border: unset;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-sm{
+    background: #2E50A3;
+    color: white;
+    border-radius: 12px;
+    width: 120px;
+    border: unset;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.horizontal-line{
+    width: 85%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    background-color: #7d7d7d;
+}
+.bg-comman.p-2.pb-4{
+margin: 8px;
+}
+.table-responsive{
+    width: 100%;
+}
+th ,td{
+    text-align: center;
+    vertical-align: middle;
+}
+.btn-colored{
+    background-color: #92BE33;
+    border-radius: 10px;
+    border: unset;
+    color: #507500;
+    padding: 5px 15px;
+}
+.btn-outline{
+    border: 1px solid #1D4BA3;
+    border-radius: 10px;
+    color: #1D4BA3;
+    padding: 5px 20px;
+    background-color: transparent;
+}
+.bg-danger{
+    background-color: #ff624db2 !important;
+    color:red !important
+}
+.bg-warning {
+    color: #FF8A00 !important;
+    background-color: #ff88005e !important;
+
+}
+
+
+
+.dot-attedenance{
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    background-color: #1D4BA3;
+}
+
+.dot-late{
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    background-color: #FF8A00;
+}
+.dot-absence{
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    background-color: #FF624D;  
+}
+
+.dot-disabled{
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    background-color: #DFDFDF;  
+}

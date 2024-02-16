@@ -6,13 +6,16 @@ import { DashboardStudentComponent } from './dashboard-students/dashboard-main.c
 import { DashboardDisablityStudentComponent } from './dashboard-disablity-students/dashboard-disablity-students.component';
 import { DashboardTeachersComponent } from './dashboard-teachers/dashboard-teachers.component';
 import { DashboardMain2Component } from './dashboard-main-2/dashboard-main-2.component';
+import { DashboardMComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent,
     children: [
-      { path: 'main', component: DashboardMainComponent },
+      { path: 'main', component: DashboardMComponent },
+
+      { path: 'school', component: DashboardMainComponent },
       { path: 'teachers', component: DashboardTeachersComponent },
       { path: 'student', component: DashboardStudentComponent },
       {
