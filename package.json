@@ -32,6 +32,7 @@
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "@popperjs/core": "^2.11.8",
+    "@syncfusion/ej2-angular-calendars": "^24.2.5",
     "apexcharts": "^3.45.2",
     "bootstrap": "^5.3.2",
     "chart.js": "^4.4.1",

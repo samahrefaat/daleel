@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -9,8 +9,14 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'PerSkool';
-  constructor(private translate: TranslateService) {
-    translate.setDefaultLang('en'); // Set default language
-    translate.use('en'); // Use a specific language
+
+  constructor(
+    private translate: TranslateService,
+    private elementRef: ElementRef
+  ) {
+    translate.setDefaultLang('ar'); // Set default language
+    translate.use('ar'); // Use a specific language
   }
+
+  ngOnInit() {}
 }

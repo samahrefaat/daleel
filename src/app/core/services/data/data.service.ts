@@ -50,7 +50,7 @@ export class DataService {
           subMenus: [],
         },
         {
-          menuValue: 'مدارس وطلاب',
+          menuValue: ' الإحصائيات',
           route: routes.dashboard,
           hasSubRoute: true,
           showSubRoute: false,
@@ -58,8 +58,8 @@ export class DataService {
           base: 'students',
           subMenus: [
             {
-              menuValue: 'Student List',
-              route: routes.studentlist,
+              menuValue: ' المدارس',
+              route: routes.schools,
               base: 'students-list',
               base2: '',
               base3: '',
