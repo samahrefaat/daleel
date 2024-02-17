@@ -17,6 +17,7 @@ import { Subscription } from 'rxjs';
   encapsulation: ViewEncapsulation.None,
 })
 export class StepperComponent {
+  avatarError: string | undefined
   CountryISO = CountryISO;
   currentYear: any;
   type = 'eamil';
@@ -33,6 +34,11 @@ export class StepperComponent {
   SearchCountryField = SearchCountryField;
   public Toggledata = true;
   public CustomControler!: string | number;
+  imageUrl: any;
+  useruploodimage: boolean = false;
+  deleteicon: boolean = true;
+  file:any
+
   form = new UntypedFormGroup({
     email: new UntypedFormControl('', []),
     // password_confirmation: new UntypedFormControl('123456', [
@@ -110,4 +116,42 @@ export class StepperComponent {
   checkCodeFilled(): void {
     this.isCodeEntered = this.code.every(val => val !== '');
   }
+  uploadAvatar(event: { target: { files: any; }; }) {
+   
+    const files = event.target.files;
+    if (files.length === 0) return;
+    if (
+      !(
+        files[0].type === 'image/jpeg' ||
+        files[0].type === 'image/png' ||
+        files[0].type === 'image/svg+xml' ||
+        files[0].type === 'image/svg'
+      )
+    ) {
+      this.avatarError = 'VALIDATION.IMAGETYPE_VALIDATION';
+      return;
+    }
+    if (files[0].size / 1024 / 1024 > 3) {
+      this.avatarError = 'VALIDATION.IMAGE_SIZE_VALIDATION';
+      return;
+    }
+
+    
+  }
+  uploadFile(event: any) {
+    this.useruploodimage = true;
+    this.deleteicon = false;
+
+    let reader = new FileReader();
+    let file = event.target.files[0];
+    if (event.target.files && event.target.files[0]) {
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            this.imageUrl = reader.result?.toString();
+            this.file = file
+
+            // this.formData.append('image', file);
+        };
+    }
+}
 }

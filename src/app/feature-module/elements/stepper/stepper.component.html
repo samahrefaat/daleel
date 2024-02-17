@@ -175,6 +175,43 @@
                         "
                         style="width: 100%; display: block"
                       />
+                      <p style="margin-top: 7px">صورة الهوية الامارتية</p>
+                      <div
+                      style="
+                          width: 100%;
+                          border-radius: 10px;
+                          padding: 0px 50px;
+                          border: 1px solid #d8d8d8;
+                          height: 140px;
+                      "
+                  >
+                      <div class="image-container">
+                          <input
+                              #file
+                              accept="image/jpeg, image/png, image/jpg"
+                              type="file"
+                              style="display: none"
+                              [required]="true"
+                              (change)="uploadFile($event)"
+                          />
+                          <div class="imagePreview" (click)="file.click()">
+                              <img
+                                  src="assets/img/upload.svg"
+                                  class="text-center img-icon"
+                                  *ngIf="deleteicon"
+                              />
+                              <p *ngIf="deleteicon">اختار الملف</p>
+                              <img
+                                  [src]="imageUrl"
+                                  *ngIf="useruploodimage && imageUrl"
+                                  class="img-user"
+                              />
+                          </div>
+                      </div>
+                      <div style="margin-top: 10px; margin-left: 0;">Max file size is 3MB, Suitable files are .jpg, .png & .PDF</div>
+
+                  </div>
+                  
                     </div>
                     <div *ngIf="type == 'email'">
                       <label style="margin-inline: 10px">
@@ -237,14 +274,14 @@
                     </div>
                   </form>
                 </div>
-                <div style="display: flex; justify-content: end">
-                  <button class="buttons" mat-button matStepperNext *ngIf="type == 'phone'" >
-                    {{ "REGISTER.NEXT" | translate }}
-                  </button>
-                  <button class="buttons" mat-button matStepperNext *ngIf="type == 'email'"  [disabled]="!emailValue">
-                    {{ "REGISTER.NEXT" | translate }}
-                  </button>
-                  <button class="buttons" mat-button matStepperNext *ngIf="type == 'identity'">
+                <div style="display: flex; justify-content: end; margin-top: 80px;">
+                 
+                 
+                  <button
+                    class="buttons"
+                    mat-button
+                    matStepperNext
+                  >
                     {{ "REGISTER.NEXT" | translate }}
                   </button>
                 </div>
@@ -264,12 +301,18 @@
                       {{ "REGISTER.TO_VERIFY" | translate }}
                     </h6>
                     <div class="row inputs">
-                      <div class="col-1" *ngFor="let index of [1, 2, 3, 4, 5, 6]">
-                        
-                        <input class="input-box" type="text" [(ngModel)]="code[index]" name="code{{index}}" (input)="checkCodeFilled()">
-
-                    </div>
-                    
+                      <div
+                        class="col-1"
+                        *ngFor="let index of [1, 2, 3, 4, 5, 6]"
+                      >
+                        <input
+                          class="input-box"
+                          type="text"
+                          [(ngModel)]="code[index]"
+                          name="code{{ index }}"
+                          (input)="checkCodeFilled()"
+                        />
+                      </div>
                     </div>
                     <div class="row">
                       <p class="text-center">
@@ -291,7 +334,7 @@
                 <div class="empty-block-2"></div>
                 <div style="justify-content: space-between; display: flex">
                   <button mat-button matStepperPrevious>السابق</button>
-                  <button mat-button matStepperNext>
+                  <button mat-button matStepperNext [disabled]="!isCodeEntered">
                     {{ "REGISTER.NEXT" | translate }}
                   </button>
                 </div>

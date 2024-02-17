@@ -165,3 +165,24 @@ button.mat-stepper-previous{
   transform: rotate(180deg);
 
 }
+.imagePreview {
+  cursor: pointer;
+  width: 140px;
+  height: 130px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  //padding: 5px;
+  //margin-bottom: 5px;
+  //box-shadow: 0px 0px 7px 1px rgba(0, 0, 15, 0.15);
+  .img-icon {
+    width: 75px;
+    height: 75px;
+   margin-top: 35px;
+    margin-left: 30px;
+  }
+  .img-user {
+    width: 100%;
+    height: 100%;
+  }
+}
