@@ -238,7 +238,13 @@
                   </form>
                 </div>
                 <div style="display: flex; justify-content: end">
-                  <button class="buttons" mat-button matStepperNext>
+                  <button class="buttons" mat-button matStepperNext *ngIf="type == 'phone'" >
+                    {{ "REGISTER.NEXT" | translate }}
+                  </button>
+                  <button class="buttons" mat-button matStepperNext *ngIf="type == 'email'"  [disabled]="!emailValue">
+                    {{ "REGISTER.NEXT" | translate }}
+                  </button>
+                  <button class="buttons" mat-button matStepperNext *ngIf="type == 'identity'">
                     {{ "REGISTER.NEXT" | translate }}
                   </button>
                 </div>
@@ -258,24 +264,12 @@
                       {{ "REGISTER.TO_VERIFY" | translate }}
                     </h6>
                     <div class="row inputs">
-                      <div class="col-1">
-                        <input class="input-box" type="text" />
-                      </div>
-                      <div class="col-1">
-                        <input class="input-box" type="text" />
-                      </div>
-                      <div class="col-1">
-                        <input class="input-box" type="text" />
-                      </div>
-                      <div class="col-1">
-                        <input class="input-box" type="text" />
-                      </div>
-                      <div class="col-1">
-                        <input class="input-box" type="text" />
-                      </div>
-                      <div class="col-1">
-                        <input class="input-box" type="text" />
-                      </div>
+                      <div class="col-1" *ngFor="let index of [1, 2, 3, 4, 5, 6]">
+                        
+                        <input class="input-box" type="text" [(ngModel)]="code[index]" name="code{{index}}" (input)="checkCodeFilled()">
+
+                    </div>
+                    
                     </div>
                     <div class="row">
                       <p class="text-center">

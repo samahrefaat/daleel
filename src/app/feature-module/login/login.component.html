@@ -2,19 +2,54 @@
 <div class="main-wrapper login-body">
   <img src="../../../assets/img/logo.png" class="logo-login" />
   <div class="login-wrapper">
+    
     <div class="container">
+      
       <div class="loginbox row">
-        <div class="col-6"></div>
+        <div class="col-6">
+          <div class="dropdown col-6 text-left">
+            <a
+              class="dropdown-toggle"
+              href="javascript:void(0);"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              style="color: black;"
+            >
+              {{ currentLang | uppercase }}
+            </a>
+            <div class="dropdown-menu">
+              <a
+              style="color: black;"
+                class="dropdown-item"
+                (click)="changeLang('en')"
+                href="javascript:void(0);"
+                >En</a
+              >
+              <a
+              style="color: black;"
+                class="dropdown-item"
+                (click)="changeLang('ar')"
+                href="javascript:void(0);"
+                >Ar</a
+              >
+            </div>
+          </div>
+        </div>
         <div class="login-right col-6">
+          
           <div class="login-right-wrap">
             <p>مرحباً بكم 👋</p>
-            <h1>تسجيل الدخول</h1>
+            <h1>تسجيل الدخول</h1>  <h3 class="page-title">
+              {{ "REGISTER.CREATE_NEW_USER" | translate }}
+            </h3>
+            
             <span style="color: #86dcff"
               >يرجى إدخال البريد الإلكتروني وكلمة المرور</span
             >
 
             <!-- Form -->
-            <form [formGroup]="form" (ngSubmit)="submit()">
+            <form [formGroup]="form" (ngSubmit)="authenticate()">
               <div class="form-group">
                 <label htmlFor="">
                   البريد الإلكتروني / رقم الهاتف المحمول
@@ -25,20 +60,20 @@
                   placeholder="البريد الإلكتروني / رقم الهاتف المحمول "
                   class="form-control"
                   type="text"
-                  formControlName="email"
-                  id="email"
+                  formControlName="username"
+                  id="username"
                   [ngClass]="{
-                    'is-invalid': f['email'].touched && f['email'].invalid
+                    'is-invalid': f['username'].touched && f['username'].invalid
                   }"
                 />
 
                 <div
-                  *ngIf="f['email'].touched && f['email'].invalid"
+                  *ngIf="f['username'].touched && f['username'].invalid"
                   class="invalid-feedback"
                 >
                   <div
                     style="font-weight: bold"
-                    *ngIf="f['email'].errors && f['email'].errors['required']"
+                    *ngIf="f['username'].errors && f['username'].errors['required']"
                   >
                     حقل إلزامي
                   </div>
@@ -109,51 +144,52 @@
                   "
                   [disabled]="form.invalid"
                 >
+                <div class="spinner-border text-light" role="status" [hidden]="!isBtnLoading"></div>
                   تسجيل الدخول
                 </button>
               </div>
 
-              <div class="form-group">
-                <button
-                  class="btn btn-primary w-100"
-                  type="submit"
-                  style="
-                    background-color: white;
-                    border-radius: 15px;
-                    color: black;
-                    height: 45px;
-                    font-size: 22px;
-                  "
-                  [disabled]="form.invalid"
-                >
-                  <img
-                    style="margin-inline: 10px"
-                    src="../../../assets/img/UAEPASS_Logo.svg"
-                  />
-                  تسجيل الدخول بالهوية الرقمية
-                </button>
-              </div>
-              <p
-                tooltip=" UAE PASS هو هوية رقمية واحدة موثوق بها لجميع المواطنين والمقيمين في الإمارات العربية المتحدة"
-                placement="bottom"
+            
+            </form>
+            <div class="form-group">
+              <button
+              (click)=" signWithIdentity()"
+                class="btn btn-primary w-100"
                 style="
-                  color: white;
-                  cursor: pointer;
-                  text-align: center;
-                  margin-bottom: 0px;
+                  background-color: white;
+                  border-radius: 15px;
+                  color: black;
+                  height: 45px;
+                  font-size: 22px;
                 "
               >
-                ما هي الهوية الرقمية
-              </p>
-              <p style="text-align: center; margin-top: 5px">
-                ليس لديك حساب؟
-                <span style="color: #86dcff; font-weight: bold">
-                  <a style="color: #86dcff; font-weight: bold" href="/register">
-                    إنشاء حساب جديد
-                  </a>
-                </span>
-              </p>
-            </form>
+                <img
+                  style="margin-inline: 10px"
+                  src="../../../assets/img/UAEPASS_Logo.svg"
+                />
+                تسجيل الدخول بالهوية الرقمية
+              </button>
+            </div>
+            <p
+              tooltip=" UAE PASS هو هوية رقمية واحدة موثوق بها لجميع المواطنين والمقيمين في الإمارات العربية المتحدة"
+              placement="bottom"
+              style="
+                color: white;
+                cursor: pointer;
+                text-align: center;
+                margin-bottom: 0px;
+              "
+            >
+              ما هي الهوية الرقمية
+            </p>
+            <p style="text-align: center; margin-top: 5px">
+              ليس لديك حساب؟
+              <span style="color: #86dcff; font-weight: bold">
+                <a style="color: #86dcff; font-weight: bold" href="/register">
+                  إنشاء حساب جديد
+                </a>
+              </span>
+            </p>
             <!-- /Form -->
             <!-- /Form -->
           </div>

@@ -23,11 +23,12 @@ export class StepperComponent {
   email: string = '';
   emailError: string = '';
   emailInvalid: boolean = false;
-
+  code: string[] = ['', '', '', '', '', '']; // Array to store code
+  isCodeEntered: boolean = false; // Property to determine 
   mobile: any;
   mobileError: string = '';
   mobileInvalid: boolean = false;
-
+  emailValue: string = '';
   currentLang: string;
   SearchCountryField = SearchCountryField;
   public Toggledata = true;
@@ -74,6 +75,7 @@ export class StepperComponent {
     }
   }
   validateEmail(e: any) {
+    this.emailValue = e.target.value;
     if (!e.target.value) {
       this.emailError = 'حقل إلزامي ';
     } else {
@@ -104,5 +106,8 @@ export class StepperComponent {
         this.mobileError = '  ';
       }
     }
+  }
+  checkCodeFilled(): void {
+    this.isCodeEntered = this.code.every(val => val !== '');
   }
 }
