@@ -3,15 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 //import packageJson from '../../package.json';
 
-
 export const environment = {
   appName: 'Daleel System',
   production: false,
   // serverUrl: "https://daleel-qa-api.azurewebsites.net/api",
   serverUrl: 'http://10.35.236.31:8082/api', //Staging,
+  newserverUrl: 'https://daleel2apisnew.azurewebsites.net/api',
   // serverUrl: 'https://localhost:7064/api', //Staging,
   env: 'Development',
- // version: packageJson.version,
+  // version: packageJson.version,
   defaultLang: 'ar',
   logoutRedirectUrl: 'http://localhost:4500/auth/login',
   clientUrl: 'http://localhost:4500/',

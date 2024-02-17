@@ -262,6 +262,9 @@ body.ltr{
   top: 0px !important;
   left: 0px !important;
 }
+.ltr .db-info h4 ,.ltr .db-info h5 {
+ text-align: left;
+}
 .sidebar-menu ul ul a{
   display: flex !important;
 }

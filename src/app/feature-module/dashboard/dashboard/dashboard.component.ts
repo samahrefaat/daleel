@@ -782,21 +782,21 @@ title="fa fa-chevron-left"
       }
     }
   }
-  ngAfterViewInit(): void {
-    // Wait for ng-apexcharts to initialize
-    setTimeout(() => {
-      const apexChart: any = this.chart.chart;
+  // ngAfterViewInit(): void {
+  //   // Wait for ng-apexcharts to initialize
+  //   setTimeout(() => {
+  //     const apexChart: any = this.chart.chart;
 
-      if (apexChart && apexChart.w) {
-        const segments = apexChart.w.globals.dom.baseEl.querySelectorAll(
-          '.apexcharts-donut-series path'
-        );
+  //     if (apexChart && apexChart.w) {
+  //       const segments = apexChart.w.globals.dom.baseEl.querySelectorAll(
+  //         '.apexcharts-donut-series path'
+  //       );
 
-        segments.forEach((segment: any) => {
-          segment.setAttribute('rx', '10'); // Set border radius for x-axis
-          segment.setAttribute('ry', '10'); // Set border radius for y-axis
-        });
-      }
-    });
-  }
+  //       segments.forEach((segment: any) => {
+  //         segment.setAttribute('rx', '10'); // Set border radius for x-axis
+  //         segment.setAttribute('ry', '10'); // Set border radius for y-axis
+  //       });
+  //     }
+  //   });
+  // }
 }

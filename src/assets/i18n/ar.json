@@ -29,5 +29,39 @@
       "EMAIL_PLACEHOLDER":"أدخل البريد الإلكتروني"
 
 
+  },
+  "SCHOOL_STATICS":{
+    "STATICS":"إحصائية المدارس    ",
+    "YEAR":"السنة الدراسية    ",
+    "HOME":" الصفحة الرئيسية    ",
+    "DASHBOARD":" لوحة التحكم  ",
+    "SCHOOL_NUMBERS":" عدد المدارس وفقا للمناهج  ",
+    "SCHOOL_NUMBERS_TWO":"  عدد المدارس وفقا للمدينة والمنهج ",
+    "ELMANHAG":" المنهج  ",
+    "STATICS_BRANCHES":" إحصائية عدد الشعب الصفية  ",
+    "AREA":" المنطقة  ",
+    "SCHOOL":" المدرسة  ",
+    "LEVEL":" الصف  ",
+    "TOTAL_BRANCHES":" إجمالي عدد الشعب  ",
+    "COMPLETED_BRANCHES":" الشعب المكتملة  ",
+    "UNCOMPLETED_BRANCHES":" الشعب الغير مكتملة  ",
+    "EMPTY_BRANCHES":"  الشعب الفارغة ",
+    "SHCOOL_STATICES_SCORES":"  إحصائيات المدارس وفقاً للدرجات ",
+    "STUDENTS_STATICES_SCORES":"   إحصائيات الطلاب وفقاً للدرجات    ",
+
+    "SHCOOL_FINISHED":"   المدارس التي انتهت  ",
+    "SHCOOL_FINISHED_TWO":"  من ادخال كافة درجات المواد    ",
+    "SHCOOL_UNFINISHED":"  المدارس التي لم تنتهي",
+    "SHCOOL_UNFINISHED_TWO":" من إدخال كل درجات المواد  ",
+    "STUDENTS_COMPLETED":" الطلاب المكتمل  ",
+    "STUDENTS_COMPLETED_TWO":" إدخال درجاتهم  ",
+
+    "STUDENTS_UNCOMPLETED":"  الطلاب الغير مكتمل ",
+    "SCHOOL_TOTAL":" إجمالي عدد المدارس ",
+    "STUDIES_TOTAL":"  إجمالي عدد المناهج  ",
+    "TEACHERS_TOTAL":"   إجمالي عدد المعلمين ",
+    "STUDENTS_TOTAL":"  إجمالي عدد الطلاب  "
+
+
   }
 }

@@ -2,9 +2,7 @@
 <div class="main-wrapper login-body">
   <img src="../../../assets/img/logo.png" class="logo-login" />
   <div class="login-wrapper">
-    
     <div class="container">
-      
       <div class="loginbox row">
         <div class="col-6">
           <div class="dropdown col-6 text-left">
@@ -14,20 +12,20 @@
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              style="color: black;"
+              style="color: black"
             >
               {{ currentLang | uppercase }}
             </a>
             <div class="dropdown-menu">
               <a
-              style="color: black;"
+                style="color: black"
                 class="dropdown-item"
                 (click)="changeLang('en')"
                 href="javascript:void(0);"
                 >En</a
               >
               <a
-              style="color: black;"
+                style="color: black"
                 class="dropdown-item"
                 (click)="changeLang('ar')"
                 href="javascript:void(0);"
@@ -37,19 +35,19 @@
           </div>
         </div>
         <div class="login-right col-6">
-          
           <div class="login-right-wrap">
             <p>مرحباً بكم 👋</p>
-            <h1>تسجيل الدخول</h1>  <h3 class="page-title">
+            <h1>تسجيل الدخول</h1>
+            <h3 class="page-title">
               {{ "REGISTER.CREATE_NEW_USER" | translate }}
             </h3>
-            
+
             <span style="color: #86dcff"
               >يرجى إدخال البريد الإلكتروني وكلمة المرور</span
             >
 
             <!-- Form -->
-            <form [formGroup]="form" (ngSubmit)="authenticate()">
+            <form [formGroup]="form" (ngSubmit)="submit()">
               <div class="form-group">
                 <label htmlFor="">
                   البريد الإلكتروني / رقم الهاتف المحمول
@@ -73,7 +71,9 @@
                 >
                   <div
                     style="font-weight: bold"
-                    *ngIf="f['username'].errors && f['username'].errors['required']"
+                    *ngIf="
+                      f['username'].errors && f['username'].errors['required']
+                    "
                   >
                     حقل إلزامي
                   </div>
@@ -144,16 +144,22 @@
                   "
                   [disabled]="form.invalid"
                 >
-                <div class="spinner-border text-light" role="status" [hidden]="!isBtnLoading"></div>
+                  <div
+                    class="spinner-border text-light"
+                    role="status"
+                    [hidden]="!isBtnLoading"
+                  ></div>
                   تسجيل الدخول
                 </button>
               </div>
-
-            
             </form>
             <div class="form-group">
               <button
+<<<<<<< HEAD
               (click)=" signWithIdentity()"
+=======
+                (click)="signWithIdentity()"
+>>>>>>> 67cf1d8a73be28a04d816d81adc60273e419fd04
                 class="btn btn-primary w-100"
                 style="
                   background-color: white;

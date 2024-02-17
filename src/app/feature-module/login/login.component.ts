@@ -7,6 +7,7 @@ import {
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
+import { AuthService } from 'src/app/core/core.index';
 import { routes } from 'src/app/core/helpers/routes/routes';
 import { AuthServiceService } from 'src/app/core/services/auth-service.service';
 import { WebStorage } from 'src/app/core/storage/web.storage';
@@ -23,17 +24,16 @@ export class LoginComponent implements OnInit, OnDestroy {
   public checkAuth: BehaviorSubject<string> = new BehaviorSubject<string>(
     localStorage.getItem('authenticated') || 'false'
   );
-  currentLang: string | undefined='ar';
+  currentLang: string | undefined = 'ar';
 
   constructor(
     private storage: WebStorage,
     private authService: AuthServiceService,
     private router: Router,
     public translate: TranslateService,
-
+    private auth: AuthService,
     private toastService: ToastService,
     private renderer: Renderer2
-
   ) {
     this.subscription = this.storage.Loginvalue.subscribe((data) => {
       if (data != '0') {
@@ -67,9 +67,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   submit() {
     this.storage.Login(this.form.value);
-    this.authService.login(this.form.value).subscribe((res) => {
-      this.router.navigate(['/dashboard/main']);
-    });
+    this.auth.login();
   }
   authenticate() {
     this.isBtnLoading = true;
@@ -80,9 +78,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         this.isBtnLoading = false;
         this.checkAuth.next('true');
         localStorage.setItem('token', res.token);
-      this.router.navigate(['/dashboard/main']);
-      // this.router.navigateByUrl('/dashboard/main');
-      
+        this.router.navigate(['/dashboard/main']);
+        // this.router.navigateByUrl('/dashboard/main');
       },
       (err: Error) => {
         this.isBtnLoading = false;
@@ -112,8 +109,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
   signWithIdentity() {
-    this.authService.signInWithIdentity(this.currentLang).subscribe((res:any) => {
-      window.location.href = res.massege;
-    });
-}}
-
+    this.authService
+      .signInWithIdentity(this.currentLang)
+      .subscribe((res: any) => {
+        window.location.href = res.massege;
+      });
+  }
+}

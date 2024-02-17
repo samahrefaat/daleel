@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 interface register {
-  email:string,
-  password:string,
-  confirmPassword?:string
+  email: string;
+  password: string;
+  confirmPassword?: string;
 }
-interface login  {
-  email:string;
-  password:string 
+interface login {
+  email: string;
+  password: string;
 }
 @Injectable({
   providedIn: 'root',
@@ -24,8 +24,7 @@ export class WebStorage {
    * @param uservalue from user form value
    */
   public Createaccount(uservalue: register): void {
-    
-    const Rawdata:string|null = localStorage.getItem('Loginusers');
+    const Rawdata: string | null = localStorage.getItem('Loginusers');
     let Pdata: Array<register> = [];
     Pdata = JSON.parse(Rawdata || '');
     Pdata.find((f: register) => {
@@ -45,33 +44,25 @@ export class WebStorage {
    * @param uservalue from login page
    */
   public Login(uservalue: register): void {
-    const returndata={message:'',status:''}
-    const data:string|null = localStorage.getItem('Loginusers');
-    const Pdata: [] = JSON.parse(data||'');
-    const Eresult: []|undefined = Pdata.find(({ email }) => email === uservalue.email);
-    if (Eresult) {
-      
-      if (Eresult) {
-        this.Createtoken(uservalue);
-        this.Loginvalue.next('Login success');
-        this.router.navigate(["/dashboard/main"]);
-        this.Loginvalue.next('0');
-      } else {
-        returndata.message='Incorrect password'
-        returndata.status='password'
-      }
-    } else {
-      returndata.message='Email is  not valid'
-      returndata.status='email'
-    }
+    const returndata = { message: '', status: '' };
+    const data: string | null = localStorage.getItem('Loginusers');
+    const Pdata: [] = JSON.parse(data || '');
+    const Eresult: [] | undefined = Pdata.find(
+      ({ email }) => email === uservalue.email
+    );
+    this.Createtoken(uservalue);
+    this.Loginvalue.next('Login success');
+    this.router.navigate(['/dashboard/main']);
+    this.Loginvalue.next('0');
   }
 
   /**
    * Create Token function for authendication
    * @param uservalue recived from login function
    */
-  public Createtoken(uservalue:register) {
-    const result = 'ABCDEFGHI' + uservalue.email + 'ghijklmnopqrs' + 'z01234567';
+  public Createtoken(uservalue: register) {
+    const result =
+      'ABCDEFGHI' + uservalue.email + 'ghijklmnopqrs' + 'z01234567';
     localStorage.setItem('LoginData', result);
   }
 
@@ -89,7 +80,7 @@ export class WebStorage {
   public Checkuser(): void {
     const users = localStorage.getItem('Loginusers');
     if (users === null) {
-      const password:Array<login> = [
+      const password: Array<login> = [
         {
           email: 'admin@dreamguys.in',
           password: '123456',
@@ -104,11 +95,13 @@ export class WebStorage {
    * Forgot password function
    * @param uservalue email object recived from Forgot password
    */
-  public Forgotpassword(uservalue:register): void {
-    const Rawdata:string|null = localStorage.getItem('Loginusers');
+  public Forgotpassword(uservalue: register): void {
+    const Rawdata: string | null = localStorage.getItem('Loginusers');
     let Pdata: [] = [];
-    Pdata = JSON.parse(Rawdata||'');
-    const Eresult:Array<login> | undefined = Pdata.find(({ email }) => email === uservalue.email);
+    Pdata = JSON.parse(Rawdata || '');
+    const Eresult: Array<login> | undefined = Pdata.find(
+      ({ email }) => email === uservalue.email
+    );
     if (Eresult) {
       this.Forgotpasswordvalue.next(Eresult);
     } else {

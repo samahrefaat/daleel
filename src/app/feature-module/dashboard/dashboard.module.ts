@@ -15,6 +15,7 @@ import { DashboardTeachersComponent } from './dashboard-teachers/dashboard-teach
 import { DashboardMain2Component } from './dashboard-main-2/dashboard-main-2.component';
 import { DashboardMComponent } from './dashboard/dashboard.component';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -43,6 +44,7 @@ import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
       imageHeight: 80,
     }),
     SharedModule,
+    TranslateModule,
   ],
 })
 export class DashboardModule {}
