@@ -32,6 +32,9 @@ export class routes {
   public static get main(): string {
     return this.baseUrl + '/dashboard/main';
   }
+  public static get schools(): string {
+    return this.baseUrl + '/dashboard/school';
+  }
   public static get student(): string {
     return this.baseUrl + '/dashboard/student';
   }

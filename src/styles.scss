@@ -216,8 +216,55 @@ ngx-editor .NgxEditor {
 body.ltr{
   direction: ltr;
 }
-
-
+.page-sub-header .breadcrumb {
+  margin-left: auto;
+  margin-right: 15px;
+}
+.ltr .sidebar {
+  bottom: 0;
+  left: 0;
+  right: unset;
+  margin-top: 0;
+  position: fixed;
+  top: 0px;
+  transition: all 0.2s ease-in-out 0s;
+  width: 259px;
+  z-index: 1001;
+  background: #FFFFFF;
+}
+.ltr .page-wrapper {
+  margin-right: 0px;
+  margin-left: 259px;
+  padding-top: 0px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+.ltr .submenu {
+  direction: ltr !important;
+}
+.ltr .page-sub-header .breadcrumb {
+  margin-right: auto;
+  margin-left: 15px;
+}
+.sidebar-menu .menu-arrow {
+  position: relative;
+  position: relative;
+  margin-right: auto !important;
+  top: 0px !important;
+  left: 0px !important;
+}
+.ltr .sidebar-menu .menu-arrow {
+  position: relative;
+  position: relative;
+  margin-left: auto !important;
+  margin-right: unset !important;
+  transform: rotate(0deg);
+  top: 0px !important;
+  left: 0px !important;
+}
+.sidebar-menu ul ul a{
+  display: flex !important;
+}
 .e-icons.highlight-day {
   /* csslint allow: adjoining-classes*/
   color: red;
