@@ -6,12 +6,18 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="page-sub-header d-flex flex-column align-items-start">
-          <h3 class="page-title">لوحة التحكم</h3>
+          <h3 class="page-title">
+            {{ "SCHOOL_STATICS.DASHBOARD" | translate }}
+          </h3>
           <ul class="breadcrumb">
             <li class="breadcrumb-item">
-              <a [routerLink]="'/dashboard/dashboard-main'">الصفحة الرئيسية</a>
+              <a [routerLink]="'/dashboard/dashboard-main'">
+                {{ "SCHOOL_STATICS.HOME" | translate }}
+              </a>
             </li>
-            <li class="breadcrumb-item active">لوحة التحكم</li>
+            <li class="breadcrumb-item active">
+              {{ "SCHOOL_STATICS.DASHBOARD" | translate }}
+            </li>
           </ul>
         </div>
       </div>
@@ -22,14 +28,14 @@
   <!-- Overview Section -->
   <div class="row mb-4">
     <div class="d-flex justify-content-between">
-      <h3 class="mt-3 mb-3">إحصائية المدارس</h3>
+      <h3 class="mt-3 mb-3">{{ "SCHOOL_STATICS.STATICS" | translate }}</h3>
       <div
         class="d-flex justify-content-center align-items-center"
         style="width: 300px"
       >
-        <label style="margin-inline: 0px; color: #2e50a3; width: 120px"
-          >السنة الدراسية</label
-        >
+        <label style="margin-inline: 0px; color: #2e50a3; width: 120px">
+          {{ "SCHOOL_STATICS.YEAR" | translate }}
+        </label>
         <select class="form-select son">
           <option>2023/2024</option>
           <option>2022/2023</option>
@@ -55,7 +61,9 @@
                 <div class="db-info">
                   <h5 class="m-2" style="color: #3c557a">300</h5>
 
-                  <h4 class="m-2" style="color: #1d4ba3">إجمالي عدد المدارس</h4>
+                  <h4 class="m-2" style="color: #1d4ba3">
+                    {{ "SCHOOL_STATICS.SCHOOL_TOTAL" | translate }}
+                  </h4>
                 </div>
               </div>
             </div>
@@ -81,7 +89,7 @@
                     <h5 class="m-2" style="color: #3c557a">300</h5>
 
                     <h4 class="m-2" style="color: #1d4ba3">
-                      إجمالي عدد المناهج
+                      {{ "SCHOOL_STATICS.STUDIES_TOTAL" | translate }}
                     </h4>
                   </div>
                 </div>
@@ -109,7 +117,7 @@
                     <h5 class="m-2" style="color: #3c557a">300</h5>
 
                     <h4 class="m-2" style="color: #1d4ba3">
-                      إجمالي عدد المعلمين
+                      {{ "SCHOOL_STATICS.TEACHERS_TOTAL" | translate }}
                     </h4>
                   </div>
                 </div>
@@ -137,7 +145,7 @@
                     <h5 class="m-2" style="color: #3c557a">300</h5>
 
                     <h4 class="m-2" style="color: #1d4ba3">
-                      إجمالي عدد الطلاب
+                      {{ "SCHOOL_STATICS.STUDENTS_TOTAL" | translate }}
                     </h4>
                   </div>
                 </div>
@@ -153,7 +161,9 @@
     <div class="col-xl-7 col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">عدد المدارس وفقا للمناهج</h3>
+          <h3 class="card-title">
+            {{ "SCHOOL_STATICS.SCHOOL_NUMBERS" | translate }}
+          </h3>
         </div>
         <div class="card-body bar">
           <div id="chart" class="text-blue">
@@ -189,13 +199,17 @@
     <div class="col-xl-5 col-12">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">عدد المدارس وفقا للمدينة والمنهج</h3>
+          <h3 class="card-title">
+            {{ "SCHOOL_STATICS.SCHOOL_NUMBERS_TWO" | translate }}
+          </h3>
         </div>
         <div class="row">
           <div class="col-lg-11 col-11">
-            <label style="margin-inline: 10px; color: #e7e7e7">المنهج</label>
+            <label style="margin-inline: 10px; color: #e7e7e7">
+              {{ "SCHOOL_STATICS.ELMANHAG" | translate }}
+            </label>
             <select class="form-select">
-              <option>المنهج</option>
+              <option>{{ "SCHOOL_STATICS.ELMANHAG" | translate }}</option>
               <option>Option 1</option>
               <option>Option 2</option>
               <option>Option 3</option>
@@ -226,26 +240,32 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">إحصائية عدد الشعب الصفية</h3>
+        <h3 class="card-title">
+          {{ "SCHOOL_STATICS.STATICS_BRANCHES" | translate }}
+        </h3>
       </div>
       <div class="form-group row w-100 mt-2">
         <div class="col-md-12">
           <div class="row">
             <div class="col-lg-3 col-12">
-              <label style="margin-inline: 10px">المنطقة</label>
+              <label style="margin-inline: 10px">
+                {{ "SCHOOL_STATICS.AREA" | translate }}
+              </label>
 
               <select class="form-select">
-                <option>المنطقة</option>
+                <option>{{ "SCHOOL_STATICS.AREA" | translate }}</option>
                 <option value="1">California</option>
                 <option value="2">Texas</option>
                 <option value="3">Florida</option>
               </select>
             </div>
             <div class="col-lg-3 col-12">
-              <label style="margin-inline: 10px">المنهج</label>
+              <label style="margin-inline: 10px">
+                {{ "SCHOOL_STATICS.ELMANHAG" | translate }}
+              </label>
 
               <select class="form-select">
-                <option>المنهج</option>
+                <option>{{ "SCHOOL_STATICS.ELMANHAG" | translate }}</option>
                 <option>Option 1</option>
                 <option>Option 2</option>
                 <option>Option 3</option>
@@ -254,10 +274,12 @@
               </select>
             </div>
             <div class="col-lg-3 col-12">
-              <label style="margin-inline: 10px">المدرسة</label>
+              <label style="margin-inline: 10px">
+                {{ "SCHOOL_STATICS.SCHOOL" | translate }}</label
+              >
 
               <select class="form-select">
-                <option>المدرسة</option>
+                <option>{{ "SCHOOL_STATICS.SCHOOL" | translate }}</option>
                 <option>Option 1</option>
                 <option>Option 2</option>
                 <option>Option 3</option>
@@ -266,10 +288,12 @@
               </select>
             </div>
             <div class="col-lg-3 col-12">
-              <label style="margin-inline: 10px">الصف</label>
+              <label style="margin-inline: 10px">
+                {{ "SCHOOL_STATICS.LEVEL" | translate }}</label
+              >
 
               <select class="form-select">
-                <option>الصف</option>
+                <option>{{ "SCHOOL_STATICS.LEVEL" | translate }}</option>
                 <option>Option 1</option>
                 <option>Option 2</option>
                 <option>Option 3</option>
@@ -300,7 +324,9 @@
               </div>
               <div class="d-flex flex-column" style="color: #1d6ba3">
                 <h3 style="color: #1d6ba3">92</h3>
-                <h5 class="card-title text-center">إجمالي عدد الشعب</h5>
+                <h5 class="card-title text-center">
+                  {{ "SCHOOL_STATICS.TOTAL_BRANCHES" | translate }}
+                </h5>
               </div>
             </div>
           </div>
@@ -323,7 +349,7 @@
               <div class="d-flex flex-column">
                 <h3 style="color: #92be33">92</h3>
                 <h5 style="color: #92be33" class="card-title text-center">
-                  الشعب المكتملة
+                  {{ "SCHOOL_STATICS.COMPLETED_BRANCHES" | translate }}
                 </h5>
               </div>
             </div>
@@ -349,7 +375,7 @@
               <div class="d-flex flex-column">
                 <h3 style="color: #fbb34d">92</h3>
                 <h5 style="color: #fbb34d" class="card-title text-center">
-                  الشعب الغير مكتملة
+                  {{ "SCHOOL_STATICS.UNCOMPLETED_BRANCHES" | translate }}
                 </h5>
               </div>
             </div>
@@ -373,7 +399,7 @@
               <div class="d-flex flex-column">
                 <h3 style="color: #ff624d">92</h3>
                 <h5 style="color: #ff624d" class="card-title text-center">
-                  الشعب الفارغة
+                  {{ "SCHOOL_STATICS.EMPTY_BRANCHES" | translate }}
                 </h5>
               </div>
             </div>
@@ -382,7 +408,7 @@
           <div class="col-xl-6 col-12 d-flex mt-5 justify-content-between">
             <div style="width: 100%">
               <h5 class="card-title text-center text-bold mt-3">
-                إحصائيات المدارس وفقاً للدرجات
+                {{ "SCHOOL_STATICS.SHCOOL_STATICES_SCORES" | translate }}
               </h5>
 
               <div
@@ -410,7 +436,10 @@
                       "
                     ></div>
                     <p style="color: #737373">
-                      المدارس التي انتهت <br />من ادخال كافة درجات المواد
+                      {{ "SCHOOL_STATICS.SHCOOL_FINISHED" | translate }}
+
+                      <br />
+                      {{ "SCHOOL_STATICS.SHCOOL_FINISHED_TWO" | translate }}
                     </p>
                   </div>
                   <div class="d-flex">
@@ -424,7 +453,10 @@
                       "
                     ></div>
                     <p style="color: #737373">
-                      المدارس التي لم تنتهي <br />من إدخال كل درجات المواد
+                      {{ "SCHOOL_STATICS.SHCOOL_UNFINISHED" | translate }}
+
+                      <br />
+                      {{ "SCHOOL_STATICS.SHCOOL_UNFINISHED_TWO" | translate }}
                     </p>
                   </div>
                 </div>
@@ -435,7 +467,7 @@
           <div class="col-xl-6 col-12 mt-5 d-flex justify-content-between">
             <div style="width: 100%">
               <h5 class="card-title text-center text-bold mt-3">
-                إحصائيات الطلاب وفقاً للدرجات
+                {{ "SCHOOL_STATICS.STUDENTS_STATICES_SCORES" | translate }}
               </h5>
 
               <div
@@ -463,7 +495,10 @@
                       "
                     ></div>
                     <p style="color: #737373">
-                      الطلاب المكتمل<br />إدخال درجاتهم
+                      {{ "SCHOOL_STATICS.STUDENTS_COMPLETED" | translate }}
+
+                      <br />
+                      {{ "SCHOOL_STATICS.STUDENTS_COMPLETED_TWO" | translate }}
                     </p>
                   </div>
                   <div class="d-flex">
@@ -477,7 +512,10 @@
                       "
                     ></div>
                     <p style="color: #737373">
-                      الطلاب الغير مكتمل <br />إدخال درجاتهم
+                      {{ "SCHOOL_STATICS.STUDENTS_UNCOMPLETED" | translate }}
+
+                      <br />
+                      {{ "SCHOOL_STATICS.STUDENTS_COMPLETED_TWO" | translate }}
                     </p>
                   </div>
                 </div>

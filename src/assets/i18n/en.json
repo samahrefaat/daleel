@@ -28,5 +28,43 @@
 
         "EMAIL_PLACEHOLDER":" Enter email "
 
-    }
+    },
+    
+        "SCHOOL_STATICS": {
+          "STATICS": "School Statistics",
+          "YEAR": "Academic Year",
+          "HOME": "Home",
+          "DASHBOARD": "Dashboard",
+          "SCHOOL_NUMBERS": "School Numbers by Curriculum",
+          "SCHOOL_NUMBERS_TWO": "School Numbers by City and Curriculum",
+          "ELMANHAG": "Curriculum",
+          "STATICS_BRANCHES": "Statistics of Class Branches",
+          "AREA": "Area",
+          "SCHOOL": "School",
+          "LEVEL": "Grade",
+          "TOTAL_BRANCHES": "Total Number of Branches",
+          "COMPLETED_BRANCHES": "Completed Branches",
+          "UNCOMPLETED_BRANCHES": "Uncompleted Branches",
+          "EMPTY_BRANCHES": "Empty Branches",
+          "SHCOOL_STATICES_SCORES": "School Statistics by Scores",
+          "SHCOOL_FINISHED": "Schools That Have Finished",
+          "SHCOOL_FINISHED_TWO": "Entering All Subject Grades",
+          "SHCOOL_UNFINISHED": "Schools That Have Not Finished",
+          "SHCOOL_UNFINISHED_TWO": "Entering All Subject Grades",
+          "STUDENTS_COMPLETED": "Completed Students",
+          "STUDENTS_COMPLETED_TWO": "Entering Their Grades",
+          "STUDENTS_UNCOMPLETED": "Uncompleted Students",
+          "SCHOOL_TOTAL": "Number of Schools",
+          "STUDIES_TOTAL": "Number of Curricula",
+          "TEACHERS_TOTAL": "Number of Teachers",
+          "STUDENTS_TOTAL": "Number of Students",
+          "STUDENTS_STATICES_SCORES": "Student Statistics by Scores"
+
+
+
+
+
+
+        }
+            
   }
