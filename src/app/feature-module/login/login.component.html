@@ -36,11 +36,11 @@
         </div>
         <div class="login-right col-6">
           <div class="login-right-wrap">
-            <p>مرحباً بكم 👋</p>
-            <h1>تسجيل الدخول</h1>
-            <h3 class="page-title">
+            <p  > {{'welcome'|translate}}</p>
+            <h1>{{'Login' | translate}}</h1>
+            <!-- <h3 class="page-title">
               {{ "REGISTER.CREATE_NEW_USER" | translate }}
-            </h3>
+            </h3> -->
 
             <span style="color: #86dcff"
               >يرجى إدخال البريد الإلكتروني وكلمة المرور</span
@@ -50,12 +50,12 @@
             <form [formGroup]="form" (ngSubmit)="submit()">
               <div class="form-group">
                 <label htmlFor="">
-                  البريد الإلكتروني / رقم الهاتف المحمول
+                  {{'Phonenumber/Email'|translate}}
                   <span style="color: red">*</span>
                 </label>
                 <input
                   class="form-control"
-                  placeholder="البريد الإلكتروني / رقم الهاتف المحمول "
+                  placeholder=" {{'Phonenumber/Email'|translate}}"
                   class="form-control"
                   type="text"
                   formControlName="username"
@@ -75,14 +75,15 @@
                       f['username'].errors && f['username'].errors['required']
                     "
                   >
-                    حقل إلزامي
+                  {{'shared.This Field is Required'|translate}}
+
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="position-relative">
                   <label htmlFor=""
-                    >كلمة المرور
+                    > {{'Password'| translate}}
                     <span style="color: red">*</span>
                   </label>
                   <input
@@ -94,7 +95,7 @@
                       'is-invalid':
                         f['password'].touched && f['password'].invalid
                     }"
-                    placeholder="كلمة المرور"
+                    placeholder=" {{'Password'| translate}}"
                   />
                   <a
                     href="javascript:void(0);"
@@ -120,7 +121,8 @@
                       f['password'].errors && f['password'].errors['required']
                     "
                   >
-                    حقل إلزامي
+                  {{'shared.This Field is Required'|translate}}
+
                   </div>
                 </div>
               </div>
@@ -129,7 +131,8 @@
                   [routerLink]="'/forgotpassword'"
                   style="color: #86dcff; text-align: right"
                 >
-                  نسيت كلمة المرور</a
+                {{'Forgot password?' | translate}}
+                    </a
                 >
               </div>
               <div class="form-group">
@@ -149,7 +152,8 @@
                     role="status"
                     [hidden]="!isBtnLoading"
                   ></div>
-                  تسجيل الدخول
+                  <h1>{{'Login' | translate}}</h1>
+
                 </button>
               </div>
             </form>
@@ -169,11 +173,11 @@
                   style="margin-inline: 10px"
                   src="../../../assets/img/UAEPASS_Logo.svg"
                 />
-                تسجيل الدخول بالهوية الرقمية
+                {{'Sign in with UAE PASS' | translate}}
               </button>
             </div>
             <p
-              tooltip=" UAE PASS هو هوية رقمية واحدة موثوق بها لجميع المواطنين والمقيمين في الإمارات العربية المتحدة"
+              tooltip="{{'UAE PASS is a single trusted digital identity for all citizens, residents to United Arab Emirates' | translate}}  "
               placement="bottom"
               style="
                 color: white;
@@ -182,13 +186,15 @@
                 margin-bottom: 0px;
               "
             >
-              ما هي الهوية الرقمية
+            {{'What is UAE PASS' | translate}}
+
             </p>
             <p style="text-align: center; margin-top: 5px">
-              ليس لديك حساب؟
+              {{'login.noAccount' |translate}}
+
               <span style="color: #86dcff; font-weight: bold">
                 <a style="color: #86dcff; font-weight: bold" href="/register">
-                  إنشاء حساب جديد
+                  {{'login.createAccount' |translate}}
                 </a>
               </span>
             </p>

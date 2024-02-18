@@ -1,6 +1,16 @@
 {
-  "welcome": "Welcome!",
+  "welcome": "مرحبا!",
   "hello": "Hello",
+  "Login": "تسجيل الدخول",
+  "Phonenumber/Email": "البريد الإلكتروني / رقم الهاتف المحمول",
+  "Password": "كلمة السر",
+  "Forgot password?": "نسيت كلمة المرور",
+  "Sign in with UAE PASS": "تسجيل الدخول بالهوية الرقمية",
+  "What is UAE PASS": "ما هي الهوية الرقمية",
+
+  "UAE PASS is a single trusted digital identity for all citizens, residents to United Arab Emirates": " UAE PASS هو هوية رقمية واحدة موثوق بها لجميع المواطنين والمقيمين في الإمارات العربية المتحدة",
+
+
   "REGISTER":{
       "CREATE_NEW_USER": "  إنشاء مستخدم جديد      ",
       "REGISTER_WAY": "طريقة التسجيل",
@@ -63,5 +73,20 @@
     "STUDENTS_TOTAL":"  إجمالي عدد الطلاب  "
 
 
-  }
+  },
+  "login": {
+    "Login Successfully": "تم تسجيل الدخول بنجاح",
+    "Something is wrong,Pleaze login again": "حدث خطأ,من فضلك قم بالتسجيل مجددًا",
+
+    "createAccount": "إنشاء مستخدم جديد",
+    "noAccount":"ليس لديك حساب؟"
+  
+
+},
+"shared":{
+  "This Field is Required": "حقل إلزامي"
+
+
+}
+
 }
