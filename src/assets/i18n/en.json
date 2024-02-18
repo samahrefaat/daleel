@@ -1,6 +1,16 @@
 {
     "welcome": "Welcome!",
+    "Phonenumber/Email": "Email / Phone number",
+    "Password": "Password",
+    "Forgot password?": "Forgot password?",
+    "Sign in with UAE PASS": "Sign in with UAE PASS",
+    "UAE PASS is a single trusted digital identity for all citizens, residents to United Arab Emirates": "UAE PASS is a single trusted digital identity for all citizens, residents to United Arab Emirates",
+    "What is UAE PASS": "What is UAE PASS",
+
+
+    "Login": "Sign in",
     "hello": "Hello",
+
     "REGISTER":{
         "CREATE_NEW_USER": "Create new user account        ",
         "REGISTER_WAY": "Register Way",
@@ -65,6 +75,19 @@
 
 
 
-        }
-            
+        },
+            "login": {
+                "Something is wrong,Pleaze login again": "Something is wrong,please login again",
+
+                "Login Successfully": "Login successfully",
+
+                "createAccount": "Create account",
+                "noAccount":" Don't have an account?"
+              
+
+            },
+            "shared":{
+                "This Field is Required": "Field is required"
+
+            }
   }
