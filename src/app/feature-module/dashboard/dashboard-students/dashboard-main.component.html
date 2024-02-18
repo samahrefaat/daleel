@@ -21,27 +21,51 @@
 
   <!-- Overview Section -->
   <div class="row">
+    <div class="d-flex justify-content-between">
+      <h3 class="mt-3 mb-3">
+        <h3 class="mt-3 mb-3">إحصائية الطلاب</h3>
+
+        <!-- {{ "SCHOOL_STATICS.STATICS" | translate }} -->
+      </h3>
+      <div
+        class="d-flex justify-content-center align-items-center"
+        style="width: 300px"
+      >
+        <label style="margin-inline: 0px; color: #2e50a3; width: 120px">
+          {{ "SCHOOL_STATICS.YEAR" | translate }}
+        </label>
+        <select class="form-select son">
+          <option>2023/2024</option>
+          <option>2022/2023</option>
+        </select>
+      </div>
+    </div>
     <owl-carousel-o [options]="customOptions" rtl="true">
       <ng-template carouselSlide>
         <div class="col-12 d-flex">
-          <div class="card bg-comman w-100 m-2">
+          <div
+            class="card p-0 bg-comman w-100 m-2"
+            style="background-color: #f9f9ed"
+          >
             <div class="card-body">
               <div
-                class="w-100 db-widgets d-flex justify-content-between align-items-center"
+                class="w-100 db-widgets d-flex justify-content-start align-items-center"
               >
                 <div class="d-flex justify-content-center align-items-center">
-                  <i
-                    class="fa fa-university"
-                    data-bs-toggle="tooltip"
-                    style="color: #1d4ba3; font-size: 25px"
-                    title="fa fa-university"
-                  ></i>
-                  <div class="db-info">
-                    <!-- <h6>المدارس</h6> -->
-                    <h4 class="font-gray-color m-2">المدارس</h4>
-                  </div>
+                  <img
+                    class="image-card"
+                    src="../../../../assets/img/school.svg"
+                  />
                 </div>
-                <h3 class="m-2">300</h3>
+                <div class="line-vertiacl"></div>
+                <div class="db-info">
+                  <h5 class="m-2" style="color: #3c557a">300</h5>
+
+                  <h4 class="m-2" style="color: #1d4ba3">
+                    إجمالي الطلاب
+                    <!-- {{ "SCHOOL_STATICS.SCHOOL_TOTAL" | translate }} -->
+                  </h4>
+                </div>
               </div>
             </div>
           </div>
@@ -51,26 +75,28 @@
         <div class="col-12 d-flex">
           <a [routerLink]="'/dashboard/student'" style="width: 96%">
             <div
-              class="card bg-comman w-100 m-2"
-              style="background-color: #1d4ba3"
+              class="card p-0 bg-comman w-100 m-2"
+              style="background-color: #e5f8ff"
             >
               <div class="card-body">
                 <div
-                  class="w-100 db-widgets d-flex justify-content-between align-items-center"
+                  class="w-100 db-widgets d-flex justify-content-start align-items-center"
                 >
                   <div class="d-flex justify-content-center align-items-center">
-                    <i
-                      class="mdi mdi-account-multiple"
-                      data-bs-toggle="tooltip"
-                      style="color: white; font-size: 25px"
-                      title="mdi-account-multiple"
-                    ></i>
-                    <div class="db-info">
-                      <!-- <h6>المدارس</h6> -->
-                      <h4 class="text-white m-2">الطلاب</h4>
-                    </div>
+                    <img
+                      class="image-card"
+                      src="../../../../assets/img/content.svg"
+                    />
                   </div>
-                  <h3 class="m-2" style="color: #42b4e3">300</h3>
+                  <div class="line-vertiacl"></div>
+                  <div class="db-info">
+                    <h5 class="m-2" style="color: #3c557a">300</h5>
+
+                    <h4 class="m-2" style="color: #1d4ba3">
+                      إجمالي الطلاب الأوائل
+                      <!-- {{ "SCHOOL_STATICS.STUDIES_TOTAL" | translate }} -->
+                    </h4>
+                  </div>
                 </div>
               </div>
             </div>
@@ -80,413 +106,571 @@
       <ng-template carouselSlide>
         <div class="col-12 d-flex">
           <a [routerLink]="'/dashboard/disablity-student'" style="width: 96%">
-            <div class="card bg-comman w-100 m-2">
+            <div
+              class="card p-0 bg-comman w-100 m-2"
+              style="background-color: #f9a7a7"
+            >
               <div class="card-body">
                 <div
-                  class="w-100 db-widgets d-flex justify-content-between align-items-center"
+                  class="w-100 db-widgets d-flex justify-content-start align-items-center"
                 >
                   <div class="d-flex justify-content-center align-items-center">
-                    <i
-                      class="ion-medkit"
-                      style="color: #1d4ba3; font-size: 25px"
-                      data-bs-toggle="tooltip"
-                      title="ion-medkit"
-                    ></i>
-                    <div class="db-info">
-                      <!-- <h6>المدارس</h6> -->
-                      <h4 class="font-gray-color m-2">الطلاب أصحاب الهمم</h4>
-                    </div>
+                    <img
+                      class="image-card"
+                      src="../../../../assets/img/teacher.svg"
+                    />
                   </div>
-                  <h3 class="m-2">300</h3>
+                  <div class="line-vertiacl"></div>
+                  <div class="db-info">
+                    <h5 class="m-2" style="color: #3c557a">300</h5>
+
+                    <h4 class="m-2" style="color: #1d4ba3">
+                      إجمالي الطلاب الخريجين
+                      <!-- {{ "SCHOOL_STATICS.TEACHERS_TOTAL" | translate }} -->
+                    </h4>
+                  </div>
                 </div>
               </div>
             </div>
           </a>
         </div>
       </ng-template>
-      <ng-template carouselSlide>
-        <div class="col-12 d-flex">
-          <div class="card bg-comman w-100 m-2">
-            <div class="card-body">
-              <div
-                class="w-100 db-widgets d-flex justify-content-between align-items-center"
-              >
-                <div class="d-flex justify-content-center align-items-center">
-                  <i
-                    class="ion-medkit"
-                    style="color: #1d4ba3; font-size: 25px"
-                    data-bs-toggle="tooltip"
-                    title="ion-medkit"
-                  ></i>
-                  <div class="db-info">
-                    <!-- <h6>المدارس</h6> -->
-                    <h4 class="font-gray-color m-2">المعلمين</h4>
-                  </div>
+    </owl-carousel-o>
+  </div>
+  <!-- /Overview Section -->
+  <div class="card">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="">
+          <div class="form-group row w-100 mt-2">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-lg-3 col-12">
+                  <label style="margin-inline: 10px">
+                    {{ "SCHOOL_STATICS.AREA" | translate }}
+                  </label>
+
+                  <select class="form-select">
+                    <option>{{ "SCHOOL_STATICS.AREA" | translate }}</option>
+                    <option value="1">California</option>
+                    <option value="2">Texas</option>
+                    <option value="3">Florida</option>
+                  </select>
                 </div>
-                <h3 class="m-2">300</h3>
+                <div class="col-lg-3 col-12">
+                  <label style="margin-inline: 10px">
+                    {{ "SCHOOL_STATICS.ELMANHAG" | translate }}
+                  </label>
+
+                  <select class="form-select">
+                    <option>{{ "SCHOOL_STATICS.ELMANHAG" | translate }}</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                    <option>Option 5</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-12">
+                  <label style="margin-inline: 10px">
+                    {{ "SCHOOL_STATICS.SCHOOL" | translate }}</label
+                  >
+
+                  <select class="form-select">
+                    <option>{{ "SCHOOL_STATICS.SCHOOL" | translate }}</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                    <option>Option 5</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-12">
+                  <label style="margin-inline: 10px">
+                    {{ "SCHOOL_STATICS.LEVEL" | translate }}</label
+                  >
+
+                  <select class="form-select">
+                    <option>{{ "SCHOOL_STATICS.LEVEL" | translate }}</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                    <option>Option 5</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body bar">
+            <div class="row"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div
+          class="card-2"
+          style="border-radius: 20px; padding: 15px; height: 93%"
+        >
+          <h3>الجنس</h3>
+
+          <div
+            class="d-flex justify-content-around align-items-stretch"
+            style="margin-top: 30%"
+          >
+            <div
+              class="box d-flex justify-content-around align-items-stretch flex-column text-center w-100"
+            >
+              <h3 style="color: #1d4ba3">الذكور</h3>
+              <img
+                style="margin-block: 10px"
+                class="user"
+                src="../../../../assets/img/user2.svg"
+              />
+              <h2>123</h2>
+            </div>
+            <div class="line-vertiacl-2"></div>
+            <div
+              class="box d-flex justify-content-around align-items-stretch flex-column text-center w-100"
+            >
+              <h3 style="color: #1d4ba3">الإناث</h3>
+              <img
+                style="margin-block: 10px"
+                class="user"
+                src="../../../../assets/img/girl.svg"
+              />
+              <h2>123</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-8 col-12">
+        <div class="card-2">
+          <div class="card-header">
+            <h3 class="card-title">
+              {{ "SCHOOL_STATICS.SCHOOL_NUMBERS" | translate }}
+            </h3>
+          </div>
+          <div class="card-body bar">
+            <div id="chart" class="text-blue">
+              <apx-chart
+                [grid]="chartOptionsOne.grid"
+                [series]="chartOptionsOne.series"
+                [chart]="chartOptionsOne.chart"
+                [dataLabels]="chartOptionsOne.dataLabels"
+                [plotOptions]="chartOptionsOne.plotOptions"
+                [yaxis]="chartOptionsOne.yaxis"
+                [legend]="chartOptionsOne.legend"
+                [fill]="chartOptionsOne.fill"
+                [stroke]="chartOptionsOne.stroke"
+                [tooltip]="chartOptionsOne.tooltip"
+                [xaxis]="chartOptionsOne.xaxis"
+                [responsive]="chartOptionsOne.responsive"
+              ></apx-chart>
+              <!-- <apx-chart
+                [grid]="chartOptionsFive.grid"
+                [fill]="chartOptionsFive.fill"
+                [series]="chartOptionsFive.series"
+                [chart]="chartOptionsFive.chart"
+                [dataLabels]="chartOptionsFive.dataLabels"
+                [plotOptions]="chartOptionsFive.plotOptions"
+                [xaxis]="chartOptionsFive.xaxis"
+                [yaxis]="chartOptionsFive.yaxis"
+                [legend]="chartOptionsFive.legend"
+              ></apx-chart> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-12 d-flex justify-content-between">
+        <div style="width: 100%" class="card-2">
+          <div class="card-header">
+            <h3
+              class="card-title text-right"
+              style="margin-right: 20px; margin-block: 10px"
+            >
+              إماراتي/ غير إماراتي
+            </h3>
+          </div>
+
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+          >
+            <div id="chart">
+              <apx-chart
+                [fill]="chartOptionsMultiRadial.fill"
+                [series]="chartOptionsMultiRadial.series"
+                [chart]="chartOptionsMultiRadial.chart"
+                [plotOptions]="chartOptionsMultiRadial.plotOptions"
+                [labels]="chartOptionsMultiRadial.labels"
+                [stroke]="chartOptionsMultiRadial.stroke"
+              ></apx-chart>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="d-flex">
+                <div
+                  style="
+                    background-color: #1d4ba3;
+                    border-radius: 20px;
+                    height: 35px;
+                    width: 8px;
+                    margin: 5px;
+                  "
+                ></div>
+                <p style="color: #737373">إماراتي</p>
+              </div>
+              <div class="d-flex">
+                <div
+                  style="
+                    background-color: #ffb54b;
+                    border-radius: 20px;
+                    height: 35px;
+                    width: 8px;
+                    margin: 5px;
+                  "
+                ></div>
+                <p style="color: #737373">غير إماراتي</p>
               </div>
             </div>
           </div>
         </div>
-      </ng-template>
-    </owl-carousel-o>
-  </div>
-  <!-- /Overview Section -->
-  <div class="row">
-    <h3 class="mt-3 mb-3">إحصائية الطلاب</h3>
-    <div class="col-xl-3 col-md-12 col-12">
-      <div class="card" style="height: 93%">
-        <div class="card-header">
-          <h3 class="card-title">النوع</h3>
-        </div>
-        <div class="card-body">
-          <div id="chart">
-            <apx-chart
-              [dataLabels]="genderChart.dataLabels"
-              [colors]="colors"
-              [series]="genderChart.series"
-              [chart]="genderChart.chart"
-              [labels]="genderChart.labels"
-              [responsive]="genderChart.responsive"
-              [stroke]="genderChart.stroke"
-            ></apx-chart>
-          </div>
-        </div>
       </div>
-    </div>
-    <div class="col-xl-3 col-12">
-      <div class="card" style="height: 93%">
-        <div class="card-header">
-          <h3 class="card-title">الجنسية</h3>
-        </div>
-        <div class="card-body">
-          <div id="chart">
-            <apx-chart
-              [dataLabels]="nationalityChart.dataLabels"
-              [colors]="colors"
-              [series]="nationalityChart.series"
-              [chart]="nationalityChart.chart"
-              [labels]="nationalityChart.labels"
-              [responsive]="nationalityChart.responsive"
-              [stroke]="nationalityChart.stroke"
-            ></apx-chart>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-xl-6 col-12">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">عدد الطلاب وفقا للجنسية</h3>
-        </div>
-        <div class="card-body bar">
-          <div id="chart" class="text-blue">
-            <apx-chart
-              [grid]="chartOptionsThree.grid"
-              [series]="chartOptionsThree.series"
-              [chart]="chartOptionsThree.chart"
-              [dataLabels]="chartOptionsThree.dataLabels"
-              [plotOptions]="chartOptionsThree.plotOptions"
-              [yaxis]="chartOptionsThree.yaxis"
-              [legend]="chartOptionsThree.legend"
-              [fill]="chartOptionsThree.fill"
-              [stroke]="chartOptionsThree.stroke"
-              [tooltip]="chartOptionsThree.tooltip"
-              [xaxis]="chartOptionsThree.xaxis"
-            ></apx-chart>
-            <!-- <apx-chart
-              [grid]="chartOptionsFive.grid"
-              [fill]="chartOptionsFive.fill"
-              [series]="chartOptionsFive.series"
-              [chart]="chartOptionsFive.chart"
-              [dataLabels]="chartOptionsFive.dataLabels"
-              [plotOptions]="chartOptionsFive.plotOptions"
-              [xaxis]="chartOptionsFive.xaxis"
-              [yaxis]="chartOptionsFive.yaxis"
-              [legend]="chartOptionsFive.legend"
-            ></apx-chart> -->
+      <div class="col-xl-6 col-12">
+        <div class="card-2" style="height: 93%">
+          <div class="card-header">
+            <h3 class="card-title">فئة الطلاب</h3>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-12">
-      <div class="card" style="height: 93%">
-        <div class="card-header">
-          <h3 class="card-title">أوراق ثبوتيه</h3>
-        </div>
-        <div class="card-body">
-          <div id="chart">
-            <apx-chart
-              [dataLabels]="genderChart.dataLabels"
-              [colors]="colors"
-              [series]="genderChart.series"
-              [chart]="genderChart.chart"
-              [labels]="genderChart.labels"
-              [responsive]="genderChart.responsive"
-              [stroke]="genderChart.stroke"
-            ></apx-chart>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-3 col-12">
-      <div class="card" style="height: 93%">
-        <div class="card-header">
-          <h3 class="card-title">الحضور</h3>
-        </div>
-        <div class="card-body">
-          <div id="chart">
-            <apx-chart
-              [dataLabels]="nationalityChart.dataLabels"
-              [colors]="colors"
-              [series]="nationalityChart.series"
-              [chart]="nationalityChart.chart"
-              [labels]="nationalityChart.labels"
-              [responsive]="nationalityChart.responsive"
-              [stroke]="nationalityChart.stroke"
-            ></apx-chart>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-6 col-12">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">عدد الطلاب وفقا للغياب</h3>
-        </div>
-        <div class="card-body bar">
-          <div id="chart" class="text-blue">
-            <apx-chart
-              [grid]="chartOptionsFive.grid"
-              [series]="chartOptionsFive.series"
-              [chart]="chartOptionsFive.chart"
-              [dataLabels]="chartOptionsFive.dataLabels"
-              [plotOptions]="chartOptionsFive.plotOptions"
-              [yaxis]="chartOptionsFive.yaxis"
-              [legend]="chartOptionsFive.legend"
-              [fill]="chartOptionsFive.fill"
-              [stroke]="chartOptionsFive.stroke"
-              [tooltip]="chartOptionsFive.tooltip"
-              [xaxis]="chartOptionsFive.xaxis"
-            ></apx-chart>
-            <!-- <apx-chart
-              [grid]="chartOptionsFive.grid"
-              [fill]="chartOptionsFive.fill"
-              [series]="chartOptionsFive.series"
-              [chart]="chartOptionsFive.chart"
-              [dataLabels]="chartOptionsFive.dataLabels"
-              [plotOptions]="chartOptionsFive.plotOptions"
-              [xaxis]="chartOptionsFive.xaxis"
-              [yaxis]="chartOptionsFive.yaxis"
-              [legend]="chartOptionsFive.legend"
-            ></apx-chart> -->
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-6 col-12 d-flex justify-content-between">
-      <div style="width: 100%" class="card">
-        <h3
-          class="card-title text-right"
-          style="margin-right: 20px; margin-block: 10px"
-        >
-          إحصائية الطلاب الموهبين
-        </h3>
 
+          <div class="card-body bar" style="padding: 0px">
+            <div id="chart">
+              <apx-chart
+                [grid]="chartOptionsFive.grid"
+                [fill]="chartOptionsFive.fill"
+                [series]="chartOptionsFive.series"
+                [chart]="chartOptionsFive.chart"
+                [dataLabels]="chartOptionsFive.dataLabels"
+                [plotOptions]="chartOptionsFive.plotOptions"
+                [xaxis]="chartOptionsFive.xaxis"
+                [yaxis]="chartOptionsFive.yaxis"
+                [legend]="chartOptionsFive.legend"
+                [responsive]="chartOptionsFive.responsive"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-12 d-flex justify-content-between">
+        <div style="width: 100%" class="card-2">
+          <div class="card-header">
+            <h3
+              class="card-title text-right"
+              style="margin-right: 20px; margin-block: 10px"
+            >
+              الحضور / الغياب
+            </h3>
+          </div>
+
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+          >
+            <div id="chart">
+              <apx-chart
+                [fill]="chartOptionsMultiRadial.fill"
+                [series]="chartOptionsMultiRadial.series"
+                [chart]="chartOptionsMultiRadial.chart"
+                [plotOptions]="chartOptionsMultiRadial.plotOptions"
+                [labels]="chartOptionsMultiRadial.labels"
+                [stroke]="chartOptionsMultiRadial.stroke"
+              ></apx-chart>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="d-flex">
+                <div
+                  style="
+                    background-color: #1d4ba3;
+                    border-radius: 20px;
+                    height: 35px;
+                    width: 8px;
+                    margin: 5px;
+                  "
+                ></div>
+                <p style="color: #737373">إماراتي</p>
+              </div>
+              <div class="d-flex">
+                <div
+                  style="
+                    background-color: #ffb54b;
+                    border-radius: 20px;
+                    height: 35px;
+                    width: 8px;
+                    margin: 5px;
+                  "
+                ></div>
+                <p style="color: #737373">غير إماراتي</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-12">
+        <div class="card-2" style="height: 93%">
+          <div class="card-header">
+            <h3 class="card-title">الغياب</h3>
+          </div>
+
+          <div class="card-body bar" style="padding: 0px">
+            <div id="chart">
+              <apx-chart
+                [grid]="chartOptionsFive.grid"
+                [fill]="chartOptionsFive.fill"
+                [series]="chartOptionsFive.series"
+                [chart]="chartOptionsFive.chart"
+                [dataLabels]="chartOptionsFive.dataLabels"
+                [plotOptions]="chartOptionsFive.plotOptions"
+                [xaxis]="chartOptionsFive.xaxis"
+                [yaxis]="chartOptionsFive.yaxis"
+                [legend]="chartOptionsFive.legend"
+                [responsive]="chartOptionsFive.responsive"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-12 d-flex justify-content-between">
+        <div style="width: 100%" class="card-2">
+          <div class="card-header">
+            <h3
+              class="card-title text-right"
+              style="margin-right: 20px; margin-block: 10px"
+            >
+              الطلاب المحظورين
+            </h3>
+          </div>
+
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+          >
+            <div id="chart">
+              <apx-chart
+                [fill]="chartOptionsMultiRadial.fill"
+                [series]="chartOptionsMultiRadial.series"
+                [chart]="chartOptionsMultiRadial.chart"
+                [plotOptions]="chartOptionsMultiRadial.plotOptions"
+                [labels]="chartOptionsMultiRadial.labels"
+                [stroke]="chartOptionsMultiRadial.stroke"
+              ></apx-chart>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="d-flex">
+                <div
+                  style="
+                    background-color: #1d4ba3;
+                    border-radius: 20px;
+                    height: 35px;
+                    width: 8px;
+                    margin: 5px;
+                  "
+                ></div>
+                <p style="color: #737373">إماراتي</p>
+              </div>
+              <div class="d-flex">
+                <div
+                  style="
+                    background-color: #ffb54b;
+                    border-radius: 20px;
+                    height: 35px;
+                    width: 8px;
+                    margin: 5px;
+                  "
+                ></div>
+                <p style="color: #737373">غير إماراتي</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-12">
+        <div class="card-2" style="height: 93%">
+          <div class="card-header">
+            <h3 class="card-title">نوع الحظر</h3>
+          </div>
+
+          <div class="card-body bar" style="padding: 0px">
+            <div id="chart">
+              <apx-chart
+                [grid]="chartOptionsFive.grid"
+                [fill]="chartOptionsFive.fill"
+                [series]="chartOptionsFive.series"
+                [chart]="chartOptionsFive.chart"
+                [dataLabels]="chartOptionsFive.dataLabels"
+                [plotOptions]="chartOptionsFive.plotOptions"
+                [xaxis]="chartOptionsFive.xaxis"
+                [yaxis]="chartOptionsFive.yaxis"
+                [legend]="chartOptionsFive.legend"
+                [responsive]="chartOptionsFive.responsive"
+              ></apx-chart>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-12">
+        <div class="card-2" style="height: 93%">
+          <div class="card-header">
+            <h3 class="card-title">الطلاب ذو المواهب</h3>
+          </div>
+          <div class="row">
+            <div class="col-lg-11 col-11">
+              <label style="margin-inline: 10px; color: #e7e7e7">
+                الموهبة
+              </label>
+              <select class="form-select">
+                <option>الموهبة</option>
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+                <option>Option 4</option>
+                <option>Option 5</option>
+              </select>
+            </div>
+          </div>
+
+          <div
+            class="card-body d-flex justify-content-between align-items-center"
+          >
+            <div id="chart">
+              <apx-chart
+                [fill]="chartOptionsMultiRadial.fill"
+                [series]="chartOptionsMultiRadial.series"
+                [chart]="chartOptionsMultiRadial.chart"
+                [plotOptions]="chartOptionsMultiRadial.plotOptions"
+                [labels]="chartOptionsMultiRadial.labels"
+                [stroke]="chartOptionsMultiRadial.stroke"
+              ></apx-chart>
+            </div>
+            <div class="d-flex flex-column">
+              <div class="d-flex">
+                <div
+                  style="
+                    background-color: #1d4ba3;
+                    border-radius: 20px;
+                    height: 35px;
+                    width: 8px;
+                    margin: 5px;
+                  "
+                ></div>
+                <p style="color: #737373">إماراتي</p>
+              </div>
+              <div class="d-flex">
+                <div
+                  style="
+                    background-color: #ffb54b;
+                    border-radius: 20px;
+                    height: 35px;
+                    width: 8px;
+                    margin: 5px;
+                  "
+                ></div>
+                <p style="color: #737373">غير إماراتي</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6">
         <div
-          class="card-body d-flex justify-content-between align-items-center"
+          style="
+            border-radius: 20px;
+            padding: 15px;
+            height: 93%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+          "
         >
-          <div id="chart">
-            <apx-chart
-              [fill]="chartOptionsMultiRadial.fill"
-              [series]="chartOptionsMultiRadial.series"
-              [chart]="chartOptionsMultiRadial.chart"
-              [plotOptions]="chartOptionsMultiRadial.plotOptions"
-              [labels]="chartOptionsMultiRadial.labels"
-              [stroke]="chartOptionsMultiRadial.stroke"
-            ></apx-chart>
-          </div>
-          <div class="d-flex flex-column">
-            <div class="d-flex">
-              <div
-                style="
-                  background-color: #1d4ba3;
-                  border-radius: 20px;
-                  height: 35px;
-                  width: 8px;
-                  margin: 5px;
-                "
-              ></div>
-              <p style="color: #737373">الذكور</p>
-            </div>
-            <div class="d-flex">
-              <div
-                style="
-                  background-color: #42b4e3;
-                  border-radius: 20px;
-                  height: 35px;
-                  width: 8px;
-                  margin: 5px;
-                "
-              ></div>
-              <p style="color: #737373">الإناث</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          <div
+            class="box"
+            style="
+              border: 1px solid #8080805e;
+              padding: 20px;
+              border-radius: 20px;
+              border-bottom: 0px;
+            "
+          >
+            <h3>الأوائل</h3>
 
-    <div class="col-xl-6 col-12 d-flex justify-content-between">
-      <div style="width: 100%" class="card">
-        <h3
-          class="card-title text-right"
-          style="margin-right: 20px; margin-block: 10px"
-        >
-          إحصائية الطلاب المحظوريين
-        </h3>
+            <div class="row">
+              <div
+                class="box d-flex justify-content-between align-items-center text-center col-5"
+              >
+                <img
+                  style="margin-block: 10px"
+                  class="user"
+                  src="../../../../assets/img/user3.svg"
+                />
+                <h3 style="color: #1d4ba3">الذكور</h3>
 
-        <div
-          class="card-body d-flex justify-content-between align-items-center"
-        >
-          <div id="chart">
-            <apx-chart
-              [fill]="chartOptionsMultiRadial.fill"
-              [series]="chartOptionsMultiRadial.series"
-              [chart]="chartOptionsMultiRadial.chart"
-              [plotOptions]="chartOptionsMultiRadial.plotOptions"
-              [labels]="chartOptionsMultiRadial.labels"
-              [stroke]="chartOptionsMultiRadial.stroke"
-            ></apx-chart>
-          </div>
-          <div class="d-flex flex-column">
-            <div class="d-flex">
+                <h2>123</h2>
+              </div>
+              <div class="line-vertiacl-3 col-2"></div>
+
               <div
-                style="
-                  background-color: #1d4ba3;
-                  border-radius: 20px;
-                  height: 35px;
-                  width: 8px;
-                  margin: 5px;
-                "
-              ></div>
-              <p style="color: #737373">الذكور</p>
-            </div>
-            <div class="d-flex">
-              <div
-                style="
-                  background-color: #42b4e3;
-                  border-radius: 20px;
-                  height: 35px;
-                  width: 8px;
-                  margin: 5px;
-                "
-              ></div>
-              <p style="color: #737373">الإناث</p>
+                class="box d-flex justify-content-between align-items-center text-center col-5"
+              >
+                <img
+                  style="margin-block: 10px"
+                  class="user"
+                  src="../../../../assets/img/girl3.svg"
+                />
+                <h3 style="color: #1d4ba3">الإناث</h3>
+
+                <h2>123</h2>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+          <div
+            class="box"
+            style="
+              border: 1px solid #8080805e;
+              padding: 20px;
+              border-radius: 20px;
+              border-bottom: 0px;
+            "
+          >
+            <h3>الأوائل</h3>
 
-    <div class="col-xl-6 col-12 d-flex justify-content-between">
-      <div style="width: 100%" class="card">
-        <h3
-          class="card-title text-right"
-          style="margin-right: 20px; margin-block: 10px"
-        >
-          إحصائية الطلاب الأوائل
-        </h3>
+            <div class="row">
+              <div
+                class="box d-flex justify-content-between align-items-center text-center col-5"
+              >
+                <h3 style="color: #1d4ba3">الذكور</h3>
+                <img
+                  style="margin-block: 10px"
+                  class="user"
+                  src="../../../../assets/img/user2.svg"
+                />
+                <h2>123</h2>
+              </div>
+              <div class="line-vertiacl-3 col-2"></div>
 
-        <div
-          class="card-body d-flex justify-content-between align-items-center"
-        >
-          <div id="chart">
-            <apx-chart
-              [fill]="chartOptionsMultiRadial.fill"
-              [series]="chartOptionsMultiRadial.series"
-              [chart]="chartOptionsMultiRadial.chart"
-              [plotOptions]="chartOptionsMultiRadial.plotOptions"
-              [labels]="chartOptionsMultiRadial.labels"
-              [stroke]="chartOptionsMultiRadial.stroke"
-            ></apx-chart>
-          </div>
-          <div class="d-flex flex-column">
-            <div class="d-flex">
               <div
-                style="
-                  background-color: #1d4ba3;
-                  border-radius: 20px;
-                  height: 35px;
-                  width: 8px;
-                  margin: 5px;
-                "
-              ></div>
-              <p style="color: #737373">الذكور</p>
-            </div>
-            <div class="d-flex">
-              <div
-                style="
-                  background-color: #42b4e3;
-                  border-radius: 20px;
-                  height: 35px;
-                  width: 8px;
-                  margin: 5px;
-                "
-              ></div>
-              <p style="color: #737373">الإناث</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xl-6 col-12 d-flex justify-content-between">
-      <div style="width: 100%" class="card">
-        <h3
-          class="card-title text-right"
-          style="margin-right: 20px; margin-block: 10px"
-        >
-          إحصائية الطلاب الخريجين
-        </h3>
-
-        <div
-          class="card-body d-flex justify-content-between align-items-center"
-        >
-          <div id="chart">
-            <apx-chart
-              [fill]="chartOptionsMultiRadial.fill"
-              [series]="chartOptionsMultiRadial.series"
-              [chart]="chartOptionsMultiRadial.chart"
-              [plotOptions]="chartOptionsMultiRadial.plotOptions"
-              [labels]="chartOptionsMultiRadial.labels"
-              [stroke]="chartOptionsMultiRadial.stroke"
-            ></apx-chart>
-          </div>
-          <div class="d-flex flex-column">
-            <div class="d-flex">
-              <div
-                style="
-                  background-color: #1d4ba3;
-                  border-radius: 20px;
-                  height: 35px;
-                  width: 8px;
-                  margin: 5px;
-                "
-              ></div>
-              <p style="color: #737373">الذكور</p>
-            </div>
-            <div class="d-flex">
-              <div
-                style="
-                  background-color: #42b4e3;
-                  border-radius: 20px;
-                  height: 35px;
-                  width: 8px;
-                  margin: 5px;
-                "
-              ></div>
-              <p style="color: #737373">الإناث</p>
+                class="box d-flex justify-content-between align-items-center text-center col-6"
+              >
+                <h3 style="color: #1d4ba3">الإناث</h3>
+                <img
+                  style="margin-block: 10px"
+                  class="user"
+                  src="../../../../assets/img/girl.svg"
+                />
+                <h2>123</h2>
+              </div>
             </div>
           </div>
         </div>

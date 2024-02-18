@@ -7,3 +7,45 @@
     height: 45px;
     margin-inline: 10px;
 }
+
+.line-vertiacl {
+    width: 0px;
+    border-left: 2px solid #808080b5;
+    height: 50px;
+    margin-inline: 20px;
+    
+}
+.line-vertiacl-2 {
+    width: 0px;
+    border-left: 2px solid #808080b5;
+    margin-inline: 20px;
+    min-height: 200px;
+}
+.line-vertiacl-3 {
+    width: 0px;
+    border-left: 2px solid #808080b5;
+}
+select.son  {
+    margin: 0px;
+    width: 200px;
+    border: 1px solid #2E50A3;
+    color: #2E50A3;
+    border-radius: 15px;
+    margin-inline: 0px !important;
+    margin-bottom: 0px;
+}
+
+.card{
+    padding: 20px;
+}
+.card-2 {
+    width: 100%;
+    border: 1px solid #8080805e;
+    border-radius: 20px;
+    border-bottom: 0px;
+    padding: 20px;
+    margin-top: 30px;
+}
+.user{
+    width: 68px;
+}

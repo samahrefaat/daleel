@@ -24,9 +24,76 @@
     </div>
   </div>
   <!-- /Page Header -->
-
+  <div class="card" *ngIf="isLoading">
+    <div class="card-body flex-column">
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+      <p class="placeholder-glow w-100">
+        <span class="placeholder col-12"></span>
+      </p>
+    </div>
+    <!-- end card-body-->
+  </div>
   <!-- Overview Section -->
-  <div class="row mb-4">
+  <div class="row mb-4" *ngIf="!isLoading">
     <div class="d-flex justify-content-between">
       <h3 class="mt-3 mb-3">{{ "SCHOOL_STATICS.STATICS" | translate }}</h3>
       <div
@@ -157,7 +224,7 @@
     </owl-carousel-o>
   </div>
   <!-- /Overview Section -->
-  <div class="row">
+  <div class="row" *ngIf="!isLoading">
     <div class="col-xl-7 col-12">
       <div class="card">
         <div class="card-header">
@@ -210,11 +277,10 @@
             </label>
             <select class="form-select">
               <option>{{ "SCHOOL_STATICS.ELMANHAG" | translate }}</option>
-              <option>Option 1</option>
-              <option>Option 2</option>
-              <option>Option 3</option>
-              <option>Option 4</option>
-              <option>Option 5</option>
+
+              <option *ngFor="let item of curriculmsFilters" [value]="item?.id">
+                {{ currentLang == "en" ? item?.name?.en : item?.name?.ar }}
+              </option>
             </select>
           </div>
         </div>
@@ -237,7 +303,7 @@
       </div>
     </div>
   </div>
-  <div class="col-md-12">
+  <div class="col-md-12" *ngIf="!isLoading">
     <div class="card">
       <div class="card-header">
         <h3 class="card-title">
@@ -252,11 +318,11 @@
                 {{ "SCHOOL_STATICS.AREA" | translate }}
               </label>
 
-              <select class="form-select">
+              <select class="form-select" (change)="onChange($event, 'zone')">
                 <option>{{ "SCHOOL_STATICS.AREA" | translate }}</option>
-                <option value="1">California</option>
-                <option value="2">Texas</option>
-                <option value="3">Florida</option>
+                <option *ngFor="let item of zoneFilters" [value]="item?.id">
+                  {{ currentLang == "en" ? item?.name?.en : item?.name?.ar }}
+                </option>
               </select>
             </div>
             <div class="col-lg-3 col-12">
@@ -266,11 +332,12 @@
 
               <select class="form-select">
                 <option>{{ "SCHOOL_STATICS.ELMANHAG" | translate }}</option>
-                <option>Option 1</option>
-                <option>Option 2</option>
-                <option>Option 3</option>
-                <option>Option 4</option>
-                <option>Option 5</option>
+                <option
+                  *ngFor="let item of curriculmsFilters"
+                  [value]="item?.id"
+                >
+                  {{ currentLang == "en" ? item?.name?.en : item?.name?.ar }}
+                </option>
               </select>
             </div>
             <div class="col-lg-3 col-12">
@@ -323,7 +390,9 @@
                 ></apx-chart>
               </div>
               <div class="d-flex flex-column" style="color: #1d6ba3">
-                <h3 style="color: #1d6ba3">92</h3>
+                <h3 style="color: #1d6ba3">
+                  {{allClassRooms.series?.[0]}}
+                </h3>
                 <h5 class="card-title text-center">
                   {{ "SCHOOL_STATICS.TOTAL_BRANCHES" | translate }}
                 </h5>
@@ -347,7 +416,9 @@
                 ></apx-chart>
               </div>
               <div class="d-flex flex-column">
-                <h3 style="color: #92be33">92</h3>
+                <h3 style="color: #92be33">
+                  {{ completeClassRoom?.series[0] }}
+                </h3>
                 <h5 style="color: #92be33" class="card-title text-center">
                   {{ "SCHOOL_STATICS.COMPLETED_BRANCHES" | translate }}
                 </h5>
@@ -373,7 +444,9 @@
                 ></apx-chart>
               </div>
               <div class="d-flex flex-column">
-                <h3 style="color: #fbb34d">92</h3>
+                <h3 style="color: #fbb34d">
+                  {{ unCompleteClassRoom?.series[0] }}
+                </h3>
                 <h5 style="color: #fbb34d" class="card-title text-center">
                   {{ "SCHOOL_STATICS.UNCOMPLETED_BRANCHES" | translate }}
                 </h5>
@@ -397,7 +470,7 @@
                 ></apx-chart>
               </div>
               <div class="d-flex flex-column">
-                <h3 style="color: #ff624d">92</h3>
+                <h3 style="color: #ff624d">{{emptyClassRoom?.series?.[0]}}</h3>
                 <h5 style="color: #ff624d" class="card-title text-center">
                   {{ "SCHOOL_STATICS.EMPTY_BRANCHES" | translate }}
                 </h5>

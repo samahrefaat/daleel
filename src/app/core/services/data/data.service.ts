@@ -68,8 +68,8 @@ export class DataService {
               base6: '',
             },
             {
-              menuValue: 'Student View',
-              route: routes.studentview,
+              menuValue: 'الطلاب',
+              route: routes.students,
               base: 'students-details',
               base2: '',
               base3: '',
@@ -78,7 +78,7 @@ export class DataService {
               base6: '',
             },
             {
-              menuValue: 'Student Add',
+              menuValue: 'ذوي الاحتياجات الخاصة',
               route: routes.studentsadd,
               base: 'students-add',
               base2: '',
@@ -88,7 +88,17 @@ export class DataService {
               base6: '',
             },
             {
-              menuValue: 'Student Edit',
+              menuValue: 'المعلمين',
+              route: routes.studentsedit,
+              base: 'students-edit',
+              base2: '',
+              base3: '',
+              base4: '',
+              base5: '',
+              base6: '',
+            },
+            {
+              menuValue: '   الكادر الإداري  ',
               route: routes.studentsedit,
               base: 'students-edit',
               base2: '',

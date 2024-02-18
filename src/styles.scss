@@ -338,3 +338,12 @@ body.ltr{
 
 
 
+
+.placeholder {
+  display: inline-block;
+  min-height: 1em;
+  vertical-align: middle;
+  cursor: wait;
+  background-color: #6c757dc7;
+  opacity: 0.5;
+}

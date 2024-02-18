@@ -8,6 +8,11 @@ import { environment } from 'src/environments/environment';
 const baseUrl = environment.newserverUrl;
 const schoolStatics =
   baseUrl + '/SchoolDashboard/GetSchoolByAddressOrCurriculum';
+const SchoolDashboard =
+  baseUrl + '/SchoolDashboard/GetSchoolDashboardStatistic';
+const GetCurriculmsFilters = baseUrl + '/Curriculum/GetCurriculms';
+const GetStatesFilters = baseUrl + '/Address/GetStates';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -20,5 +25,14 @@ export class DashboardService {
 
   getSchoolStatics(filters: any): Observable<any> {
     return this.http.post<any>(schoolStatics, { ...filters });
+  }
+  getSchoolDashboardStatistic(filters: any): Observable<any> {
+    return this.http.post<any>(SchoolDashboard, { ...filters });
+  }
+  getCurriculmsFilters(): Observable<any> {
+    return this.http.get<any>(GetCurriculmsFilters);
+  }
+  getStatesFilters(): Observable<any> {
+    return this.http.get<any>(GetStatesFilters);
   }
 }

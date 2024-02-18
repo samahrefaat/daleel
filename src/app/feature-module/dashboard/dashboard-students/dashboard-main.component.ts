@@ -52,7 +52,7 @@ export class DashboardStudentComponent {
   colors = ['#1D4BA3', '#42B4E3'];
   public chartOptionsThree: Partial<ChartOptions>;
   public chartOptionsEight: Partial<ChartOptions>;
-
+  chartOptionsOne: any;
   public chartOptionsnine: Partial<ChartOptions>;
   public chartOptionsten: Partial<ChartOptions>;
 
@@ -105,6 +105,140 @@ title="fa fa-chevron-left"
     nav: true,
   };
   constructor() {
+    this.chartOptionsOne = {
+      series: [
+        {
+          name: 'Net Profit',
+          data: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+        },
+      ],
+      fill: {
+        type: 'solid',
+        colors: [
+          '#1AA8DF',
+          '#FFB54B',
+          '#0E8A74',
+          '#FF624D',
+          '#3E4954',
+          '#92BE33',
+          '#42B4E3',
+        ],
+      },
+      chart: {
+        type: 'bar',
+        width: 500,
+        // hight: 00,
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          distributed: true,
+          borderRadius: 15,
+          dataLabels: {
+            show: false,
+            position: 'top',
+          },
+        },
+      },
+
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        show: true,
+        width: 2,
+        colors: ['transparent'],
+      },
+      xaxis: {
+        labels: {
+          style: {
+            colors: ['#000', '#000', '#000', '#000', '#000', '#000', '#000'],
+            fontSize: '12px',
+          },
+        },
+        categories: [
+          'test',
+          'test',
+          'test',
+          'test',
+          'test',
+          'test',
+          'test',
+          'test',
+        ],
+      },
+      yaxis: {
+        labels: {
+          style: {
+            colors: ['#000', '#000', '#000', '#000', '#000', '#000', '#000'],
+            fontSize: '12px',
+          },
+        },
+      },
+      // fill: {
+      //   opacity: 1,
+      // },
+      grid: {
+        show: true, // you can either change hear to disable all grids
+        xaxis: {
+          lines: {
+            show: false, //or just here to disable only x axis grids
+          },
+        },
+        yaxis: {
+          lines: {
+            show: true, //or just here to disable only y axis
+          },
+        },
+      },
+      tooltip: {
+        y: {
+          formatter: function (val: string) {
+            return '$ ' + val + ' thousands';
+          },
+        },
+      },
+      responsive: [
+        {
+          breakpoint: 1100,
+          options: {
+            chart: {
+              width: 450,
+              // height: 350,
+            },
+          },
+        },
+        {
+          breakpoint: 500,
+          options: {
+            chart: {
+              width: 380,
+              // height: 350,
+            },
+          },
+        },
+        {
+          breakpoint: 400,
+          options: {
+            chart: {
+              width: 280,
+              // height: 350,
+            },
+            plotOptions: {
+              bar: {
+                horizontal: false,
+                distributed: true,
+                borderRadius: 10,
+                dataLabels: {
+                  show: false,
+                  position: 'top',
+                },
+              },
+            },
+          },
+        },
+      ],
+    };
     this.genderChart = {
       series: [44, 55],
       chart: {
@@ -297,26 +431,20 @@ title="fa fa-chevron-left"
       series: [
         {
           name: 'basic',
-          data: [400, 430, 548],
+          data: [1, 2, 3, 4, 5, 6, 7, 8, 9],
         },
       ],
       fill: {
-        type: 'gradient',
-        gradient: {
-          shade: 'light',
-          type: 'horizontal',
-          shadeIntensity: 0.5,
-          gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
-          inverseColors: true,
-          opacityFrom: 1,
-          opacityTo: 1,
-          stops: [0, 50, 100],
-          colorStops: [
-            { offset: 0, color: '#1D4BA3' },
-
-            { offset: 100, color: '#1AA8DF' },
-          ],
-        },
+        type: 'solid',
+        colors: [
+          '#1AA8DF',
+          '#FFB54B',
+          '#0E8A74',
+          '#FF624D',
+          '#3E4954',
+          '#92BE33',
+          '#42B4E3',
+        ],
       },
       chart: {
         type: 'bar',
@@ -336,11 +464,60 @@ title="fa fa-chevron-left"
           },
         },
       },
+      responsive: [
+        {
+          breakpoint: 1360,
+          options: {
+            chart: {
+              width: 350,
+              // height: 350,
+            },
+          },
+        },
+        {
+          breakpoint: 1100,
+          options: {
+            chart: {
+              width: 450,
+              // height: 350,
+            },
+          },
+        },
+        {
+          breakpoint: 500,
+          options: {
+            chart: {
+              width: 350,
+              // height: 350,
+            },
+          },
+        },
+        {
+          breakpoint: 400,
+          options: {
+            chart: {
+              width: 280,
+              // height: 350,
+            },
+            plotOptions: {
+              bar: {
+                horizontal: false,
+                distributed: true,
+                borderRadius: 10,
+                dataLabels: {
+                  show: false,
+                  position: 'top',
+                },
+              },
+            },
+          },
+        },
+      ],
       plotOptions: {
         bar: {
           horizontal: true,
           distributed: true,
-          borderRadius: 30,
+          borderRadius: 10,
           dataLabels: {
             position: 'top',
           },
@@ -354,11 +531,6 @@ title="fa fa-chevron-left"
         },
       },
 
-      // legend: {
-      //   position: 'top',
-      //   horizontalAlign: 'left',
-      //   offsetX: 20,
-      // },
       legend: {
         show: false,
         position: 'top',
@@ -399,9 +571,15 @@ title="fa fa-chevron-left"
           show: false,
         },
         categories: [
-          'الغياب بدون عذر',
-          'الغياب مع عذر',
-          'الطلاب المتغيبين لـ 3 أيام متتاليه أوأكثر لتاريخ اليوم',
+          'test',
+          'test',
+          'test',
+          'test',
+          'test',
+          'test',
+          'test',
+          'test',
+          'test',
         ],
       },
     };
@@ -632,7 +810,7 @@ title="fa fa-chevron-left"
       },
       fill: {
         type: 'solid',
-        colors: ['#1D4BA3', '#42B4E3'],
+        colors: ['#1D4BA3', '#FFB54B'],
       },
 
       plotOptions: {
